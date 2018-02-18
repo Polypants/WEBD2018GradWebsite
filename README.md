@@ -4,6 +4,6 @@ Maybe this name will get shorter when the event has a title... or maybe it'll ge
 
 ## How to Make Changes
 
-Coming soon.
+Test.
 
 
