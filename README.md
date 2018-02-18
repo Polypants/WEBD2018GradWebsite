@@ -2,8 +2,26 @@
 
 Maybe this name will get shorter when the event has a title... or maybe it'll get longer. We'll see.
 
-## How to Make Changes
+## Getting Started
 
+Run the following command in the terminal to download the project with git.
+(make sure you're in a folder where you want the project to be, otherwise it will be on your user folder)
+
+```
+git clone https://github.com/Polypants/WEBD2018GradWebsite.git
+```
+
+Now you can now `cd` into the folder and run `npm i` or `npm install` to install the dependencies.
+To start the dev server run `npm start`
+
+## Making Changes
+
+Before you do anything, it's a good idea to check if your local files are up-to-date.
+
+```
+git pull
+```
+Now that that's done...
 To work on a new feature or to fix something, you'll need to create a branch.
 
 ```
