@@ -22,7 +22,7 @@ This will create a new branch and make it the one you'll be editing when you mes
 From here, you can do whatever you need to to update the project. Have fun!
 
 When you're all done with your changes you can push them to the github repository where they'll be added as a new branch.
-You'll first need to add everything you did to the 'staging aria' or whatever.
+You'll first need to add everything you did to the 'staging area' or whatever.
 
 ```
 git add -A
@@ -36,7 +36,7 @@ Now, you're ready to commit the changes.
 git commit -m "what I added or fixed"
 ```
 
-And now it's ready to be pushed to Gitgub! Woo!
+And now it's ready to be pushed to Github! Woo!
 
 ```
 git push origin my-feature-or-fix
