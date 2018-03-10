@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 
+import { Title } from "./components/Title"
+import { RSVP } from "./components/RSVP"
+
 class Home extends Component {
   render() {
     return (
-      <h1>An example Home page</h1>
+      <div>
+	      <Title />
+	      <RSVP />
+      </div>
     );
   }
 }
