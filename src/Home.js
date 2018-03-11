@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 
-import { Title } from "./components/Title"
-import { RSVP } from "./components/RSVP"
+import { Event } from "./components/Event"
+
 
 class Home extends Component {
   render() {
     return (
       <div>
-	      <Title />
-	      <RSVP />
+	      <Event />
       </div>
     );
   }
