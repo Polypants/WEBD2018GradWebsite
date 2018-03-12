@@ -1,6 +1,8 @@
 .MobileTeam {
   width: 100vw;
   overflow-x: scroll;
+  padding: 50px 0;
+  border: 1px solid red;
 }
 .MobileTeam_Slider {
   display: inline-block;

@@ -16,7 +16,7 @@ class App extends Component {
       studentData: [],
       randomizedStudentData: [],
       isMobile: false,
-      windowWidth: 0
+      windowWidth: window.innerWidth
     };
   }
 
@@ -30,11 +30,8 @@ class App extends Component {
     }
   }
 
-  componentWillMount() {
-    this.onResize();
-  }
-
   componentDidMount() {
+    this.onResize();
     window.addEventListener("resize", this.onResize);
 
     // initialize firebase for student profile data
