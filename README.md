@@ -1,6 +1,6 @@
-# The Humber Web Development & Interactive Media Graduating Class of 2018 Website
+# Elevate 2018 Website
 
-Maybe this name will get shorter when the event has a title... or maybe it'll get longer. We'll see.
+The Humber Web Development & Interactive Media Graduating Class of 2018 Website
 
 ## Getting Started
 

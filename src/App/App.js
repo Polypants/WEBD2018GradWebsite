@@ -3,7 +3,7 @@ import { Route, Link } from 'react-router-dom';
 import firebase from 'firebase';
 
 import Intro from '../Intro/Intro';
-import Team from '../Team/Team';
+import MobileTeam from '../MobileTeam/MobileTeam';
 import Event from '../Event/Event';
 
 import './App.css';
@@ -12,20 +12,31 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      windowWidth: 0,
       dataRetrieved: false,
-      studentData: []
+      studentData: [],
+      randomizedStudentData: [],
+      isMobile: false,
+      windowWidth: 0
     };
   }
 
-  getWindowWidth = () => {
-    // get width of screen for responsive rendering of modules
+  onResize = () => {
     this.setState({ windowWidth: window.innerWidth });
+
+    if (this.state.windowWidth < 600) {
+      this.setState({ isMobile: true });
+    } else {
+      this.setState({ isMobile: false });
+    }
+  }
+
+  componentWillMount() {
+    this.onResize();
   }
 
   componentDidMount() {
-    this.getWindowWidth();
-    window.addEventListener('resize', this.getWindowWidth);
+    window.addEventListener("resize", this.onResize);
+
     // initialize firebase for student profile data
     firebase.initializeApp({
       apiKey: "AIzaSyByMtWsHIpivSm9z3OSk4Qst40gDxmfzWU",
@@ -39,21 +50,24 @@ class App extends Component {
     firebase.database().ref().once('value').then((data) => {
       // convert the object returned into an array
       var dataArray = Object.values(data.val());
-      this.setState({ dataRetrieved: true, studentData: dataArray });
+      // create new randomized array
+      var randomizedStudentData = dataArray.concat().sort(function() {
+        return Math.random() - 0.5;
+      });
+      // load arrays into app state
+      this.setState({ dataRetrieved: true, studentData: dataArray, randomizedStudentData: randomizedStudentData });
     });
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.getWindowWidth);
   }
 
   render() {
     return (
       <div className="App">
         <Route path='/' component={Intro} />
-        <Route path='/' render={() => (
-          <Team studentData={this.state.studentData} dataRetrieved={this.state.dataRetrieved} />
-        )} />
+        {this.state.isMobile &&
+          <Route path='/' render={() => (
+            <MobileTeam studentData={this.state.randomizedStudentData} dataRetrieved={this.state.dataRetrieved} />
+          )} />
+        }
         <Route path='/' component={Event} />
       </div>
     );
