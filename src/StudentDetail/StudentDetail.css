@@ -23,6 +23,8 @@
     opacity: 0.0;
     transition: height 500ms 500ms, opacity 500ms 0ms;
     z-index: -999;
+    
+    font-family: sans-serif;
 }
 
 .StudentDetail_closeButton {
