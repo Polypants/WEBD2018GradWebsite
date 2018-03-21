@@ -5,7 +5,7 @@ import firebase from 'firebase';
 import Intro from '../Intro/Intro';
 import MobileTeam from '../MobileTeam/MobileTeam';
 import Event from '../Event/Event';
-
+import MobileMenu from '../MobileMenu/MobileMenu';
 import './App.css';
 
 class App extends Component {
@@ -59,8 +59,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Route path='/' component={MobileMenu} />
         <Route path='/' component={Intro} />
-        {this.state.isMobile &&
+        {
+          this.state.isMobile &&
           <Route path='/' render={() => (
             <MobileTeam studentData={this.state.randomizedStudentData} dataRetrieved={this.state.dataRetrieved} />
           )} />
