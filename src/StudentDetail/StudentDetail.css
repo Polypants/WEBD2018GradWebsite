@@ -1,0 +1,155 @@
+.StudentDetail_profile {
+  background-color: #f2f2f2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  opacity: 1.0;
+  transition: height 500ms 0ms, opacity 500ms 500ms;
+  
+  font-family: sans-serif;
+}
+
+.StudentDetail_profile_hide {
+  background-color: #f2f2f2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  opacity: 0.0;
+  transition: height 500ms 500ms, opacity 500ms 0ms;
+  z-index: -999;
+  
+  font-family: sans-serif;
+}
+
+.StudentDetail_closeButton {
+  width: 2rem;
+  position: absolute;
+  margin-left: 3rem;
+  margin-top: 3rem;
+  z-index: 6969;
+}
+
+.StudentDetail_profile_text {
+
+  width: 55vw;
+  height: 100vh;
+  position: absolute;
+  margin-top: 0;
+  z-index: 69;
+  display: inline-flex;
+}
+
+.StudentDetail_profile_mugshot {
+
+  width: 45vw;
+  height: 100vh;
+  margin-left: 55vw;
+}
+
+.StudentDetail_profile_text_wrapper {
+  margin: auto;
+  width: 35vw;
+}
+
+.StudentDetail_profile_text_name {
+  padding: 0;
+  margin: 0;
+  font-size: 4rem;
+}
+.StudentDetail_profile_text_title {
+  padding: 0;
+  margin: 0;
+  font-size: 2rem;
+}
+
+.StudentDetail_profile_text_bio {
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+
+.StudentDetail_profile_text_icons {
+  display: flex;
+  margin-left: -0.5rem;
+  margin-top: 3rem;
+}
+
+.StudentDetail_profile_text_icons_icon {
+  width: 1.5rem;
+  margin: 0.5rem;
+}
+
+.StudentDetail_profile_text_icons_button {
+  font-family: serif;
+  margin-left: auto;
+  order: 2;
+  width: 8rem;
+  border: none;
+  border-radius: 70px;
+  -webkit-border-radius: 70;
+  -moz-border-radius: 70;
+  background-color: #b2b2b2;
+}
+
+.StudentDetail_profile_mugshot {
+  background-size: 100vh;
+  background-repeat: no-repeat;
+  background-position: top 0 center;
+}
+
+@media only screen and (max-width: 1024px) {
+  
+  .StudentDetail_profile_text_wrapper {
+      width: 45vw;
+  }
+
+  .StudentDetail_profile_text_name {
+      font-size: 3rem;
+  }
+  
+  .StudentDetail_profile_text_title {
+      font-size: 1.5rem;
+  }
+  
+  .StudentDetail_profile_text_bio {
+      font-size: 0.875rem;
+      margin-top: 1.25rem;
+  }
+  
+}
+
+@media only screen and (max-width: 600px) {
+  .StudentDetail_profile_text_wrapper {
+      width: 80vw;
+  }
+  
+  .StudentDetail_profile_text {
+      width: 100vw;
+      height: 70vh;
+      margin-top: 27.5vh;
+  }
+  
+  .StudentDetail_profile_mugshot {
+      width: 100vw;
+      height: 47.5vh;
+      margin-left: 0;
+  }
+  
+  .StudentDetail_profile_text_bio {
+      margin-top: 2.5rem;
+  }
+  
+  .StudentDetail_closeButton {
+      right: 0;
+      width: 1.5rem;
+      margin-top: 2rem;
+      margin-right: 2rem;
+  }
+}

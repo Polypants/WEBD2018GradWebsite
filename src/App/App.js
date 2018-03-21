@@ -6,6 +6,8 @@ import Intro from '../Intro/Intro';
 import MobileTeam from '../MobileTeam/MobileTeam';
 import Event from '../Event/Event';
 import MobileMenu from '../MobileMenu/MobileMenu';
+import StudentDetail from '../StudentDetail/StudentDetail';
+
 import './App.css';
 
 class App extends Component {
