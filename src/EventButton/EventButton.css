@@ -2,4 +2,12 @@
 	background-color: lightgray;
 	color: black;
 	text-align: center;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 0;
+  border-radius: 15px;
+  padding:3px;
+  border-radius: 25px;
+  padding: 12px;
+  width: 8rem;
 }
