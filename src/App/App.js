@@ -6,6 +6,8 @@ import Intro from '../Intro/Intro';
 import MobileTeam from '../MobileTeam/MobileTeam';
 import Event from '../Event/Event';
 
+import StudentDetail from '../StudentDetail/StudentDetail';
+
 import './App.css';
 
 class App extends Component {
@@ -66,6 +68,8 @@ class App extends Component {
           )} />
         }
         <Route path='/' component={Event} />
+        <Route path='/' component={StudentDetail} />
+            
       </div>
     );
   }
