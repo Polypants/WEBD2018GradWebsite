@@ -1,155 +1,288 @@
+@font-face {
+    font-family: 'BebasNeue-Bold';
+    src: url('../Fonts/BebasNeue Bold.ttf');
+}
+
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('../Fonts/BebasNeue Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../Fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto-Italic';
+    src: url('../Fonts/Roboto-Italic.ttf');
+}
+
 .StudentDetail_profile {
-  background-color: #f2f2f2;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-  opacity: 1.0;
-  transition: height 500ms 0ms, opacity 500ms 500ms;
-  
-  font-family: sans-serif;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    opacity: 1.0;
+    transition: height 500ms 0ms, opacity 500ms 500ms;
+    z-index: 69696969;
 }
 
 .StudentDetail_profile_hide {
-  background-color: #f2f2f2;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 0;
-  margin: 0;
-  opacity: 0.0;
-  transition: height 500ms 500ms, opacity 500ms 0ms;
-  z-index: -999;
-  
-  font-family: sans-serif;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    opacity: 0.0;
+    transition: height 500ms 500ms, opacity 500ms 0ms;
+    z-index: -999;
 }
 
+
+
 .StudentDetail_closeButton {
-  width: 2rem;
-  position: absolute;
-  margin-left: 3rem;
-  margin-top: 3rem;
-  z-index: 6969;
+    right: 0;
+    position: absolute;
+    width: 2rem;
+    margin-top: 1rem;
+    margin-right: 3rem;
 }
 
 .StudentDetail_profile_text {
-
-  width: 55vw;
-  height: 100vh;
-  position: absolute;
-  margin-top: 0;
-  z-index: 69;
-  display: inline-flex;
+    width: 55vw;
+    height: 100vh;
+    position: absolute;
+    margin-top: 0;
+    z-index: 69;
+    display: inline-flex;
 }
 
 .StudentDetail_profile_mugshot {
-
-  width: 45vw;
-  height: 100vh;
-  margin-left: 55vw;
+    width: 45vw;
+    height: 100vh;
+    margin-left: 55vw;
 }
 
 .StudentDetail_profile_text_wrapper {
-  margin: auto;
-  width: 35vw;
+    margin: auto;
+    width: 35vw;
 }
 
 .StudentDetail_profile_text_name {
-  padding: 0;
-  margin: 0;
-  font-size: 4rem;
-}
-.StudentDetail_profile_text_title {
-  padding: 0;
-  margin: 0;
-  font-size: 2rem;
+    padding: 0;
+    margin: 0;
+    font-size: 3.25rem;
+    font-family: 'BebasNeue-Bold';
+    color: #2b3255;
+    margin-left: 0.05rem;
 }
 
-.StudentDetail_profile_text_bio {
-  padding: 0;
-  margin: 0;
-  font-size: 1rem;
-  margin-top: 2rem;
+.StudentDetail_profile_text_title {
+    padding: 0;
+    margin: 0;
+    font-size: 1.25rem;
+    font-family: 'Roboto';
+    color: #8f00f1;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    margin-left: 0.05rem;
 }
 
 .StudentDetail_profile_text_icons {
-  display: flex;
-  margin-left: -0.5rem;
-  margin-top: 3rem;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-left: 0.05rem;
 }
 
 .StudentDetail_profile_text_icons_icon {
-  width: 1.5rem;
-  margin: 0.5rem;
+    width: 1.25rem;
+    margin-left: 0.65rem;
+    margin-right: 0.65rem;
+}
+
+.StudentDetail_profile_text_icons_icon:first-child {
+    width: 1rem;
+    margin-left: 0;
+    margin-right: 0.65rem;
+}
+
+.StudentDetail_profile_text_bio {
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+    font-family: 'Roboto';
+    color: #2b3255;
+    margin-top: 1.75rem;
+    line-height: 200%;
 }
 
 .StudentDetail_profile_text_icons_button {
-  font-family: serif;
-  margin-left: auto;
-  order: 2;
-  width: 8rem;
-  border: none;
-  border-radius: 70px;
-  -webkit-border-radius: 70;
-  -moz-border-radius: 70;
-  background-color: #b2b2b2;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto';
+    font-size: 0.9rem;
+    width: 10rem;
+    height: 2.75rem;
+    border: none;
+    border-radius: 70px;
+    -webkit-border-radius: 70;
+    -moz-border-radius: 70;
+    background-color: #4C27F2;
+    color: #ffffff;
+    margin-top: 1.85rem;
 }
 
 .StudentDetail_profile_mugshot {
-  background-size: 100vh;
-  background-repeat: no-repeat;
-  background-position: top 0 center;
+    background-size: 100vh;
+    background-repeat: no-repeat;
+    background-position: top 0 center;
+}
+
+.StudentDetail_profile_mugshot_circle1 {
+    position: absolute;
+    width: 20rem;
+    top: 65%;
+    right: -3%;
+    opacity: 0.85;
+    mix-blend-mode: screen;
+}
+
+.StudentDetail_profile_mugshot_circle2 {
+    position: absolute;
+    width: 12.5rem;
+    top: 47.5%;
+    right: -5%;
+    opacity: 0.85;
+    mix-blend-mode: screen;
+}
+
+.StudentDetail_profile_mugshot_triangle1 {
+    position: absolute;
+    width: 27.5rem;
+    top: 50%;
+    right: -8%;
+    transform: rotate(-6deg);
+    opacity: 0.85;
+    mix-blend-mode: overlay;
+
+}
+
+.StudentDetail_profile_mugshot_triangle2 {
+    position: absolute;
+    width: 10rem;
+    top: 47.5%;
+    right: 2.5%;
+    opacity: 0.85;
+    transform: rotate(10deg);
+    mix-blend-mode: overlay;
 }
 
 @media only screen and (max-width: 1024px) {
-  
-  .StudentDetail_profile_text_wrapper {
-      width: 45vw;
-  }
 
-  .StudentDetail_profile_text_name {
-      font-size: 3rem;
-  }
-  
-  .StudentDetail_profile_text_title {
-      font-size: 1.5rem;
-  }
-  
-  .StudentDetail_profile_text_bio {
-      font-size: 0.875rem;
-      margin-top: 1.25rem;
-  }
-  
+    .StudentDetail_profile_text_wrapper {
+        width: 45vw;
+    }
+
+    .StudentDetail_profile_text_name {
+        font-size: 3.25rem;
+    }
+
+    .StudentDetail_profile_text_title {
+        font-size: 1.25rem;
+    }
+
+    .StudentDetail_profile_text_bio {
+        font-size: 0.9rem;
+    }
+
 }
 
 @media only screen and (max-width: 600px) {
-  .StudentDetail_profile_text_wrapper {
-      width: 80vw;
-  }
-  
-  .StudentDetail_profile_text {
-      width: 100vw;
-      height: 70vh;
-      margin-top: 27.5vh;
-  }
-  
-  .StudentDetail_profile_mugshot {
-      width: 100vw;
-      height: 47.5vh;
-      margin-left: 0;
-  }
-  
-  .StudentDetail_profile_text_bio {
-      margin-top: 2.5rem;
-  }
-  
-  .StudentDetail_closeButton {
-      right: 0;
-      width: 1.5rem;
-      margin-top: 2rem;
-      margin-right: 2rem;
-  }
+    .StudentDetail_profile_text_wrapper {
+        width: 80vw;
+    }
+
+    .StudentDetail_profile_text {
+        width: 100vw;
+        height: 60vh;
+        margin-top: 40vh;
+        display: block;
+        background-color: #ffffff;
+    }
+
+    .StudentDetail_profile_text_name {
+        margin-top: 1.5rem;
+        font-size: 3rem;
+        margin-top: 2.25rem;
+    }
+
+    .StudentDetail_profile_text_title {
+        margin-top: -0.5rem;
+    }
+
+    .StudentDetail_profile_text_bio {
+        margin-top: 1.5rem;
+        line-height: 150%;
+        font-size: 0.85rem;
+        width: 90%;
+    }
+
+    .StudentDetail_profile_mugshot {
+        width: 100vw;
+        height: 40vh;
+        margin-left: 0;
+        background-size: 40vh;
+    }
+
+    .StudentDetail_profile_text_icons {
+        position: absolute;
+        bottom: 10.5%;
+        margin-left: 0.75rem;
+    }
+
+    .StudentDetail_closeButton {
+        margin-top: 1.5rem;
+        margin-right: 1.5rem;
+    }
+
+    .StudentDetail_profile_text_icons_button {
+        position: absolute;
+        bottom: 9%;
+        right: 12.5%;
+        font-size: 0.8rem;
+        width: 8rem;
+        height: 2.25rem;
+    }
+
+    .StudentDetail_profile_mugshot_circle1 {
+        width: 12.5rem;
+        top: 30%;
+        right: -2.5%;
+    }
+
+    .StudentDetail_profile_mugshot_circle2 {
+        width: 7.5rem;
+        top: 20%;
+        right: -10%;
+    }
+
+    .StudentDetail_profile_mugshot_triangle1 {
+        width: 10rem;
+        top: 20%;
+        right: 15%;
+    }
+
+    .StudentDetail_profile_mugshot_triangle2 {
+        width: 5rem;
+        top: 20%;
+        right: 10%;
+        transform: rotate(-5deg);
+    }
 }

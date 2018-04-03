@@ -70,6 +70,7 @@ class App extends Component {
           )} />
         }
         <Route path='/' component={Event} />
+        <Route path='/' component={StudentDetail} />
       </div>
     );
   }
