@@ -168,6 +168,9 @@
     width: 27.5rem;
     top: 50%;
     right: -8%;
+    -moz-transform: rotate(-6deg);
+    -o-transform: rotate(-6deg);
+    -webkit-transform: rotate(-6deg);
     transform: rotate(-6deg);
     opacity: 0.85;
     mix-blend-mode: overlay;
@@ -180,6 +183,9 @@
     top: 47.5%;
     right: 2.5%;
     opacity: 0.85;
+    -moz-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+    -webkit-transform: rotate(10deg);
     transform: rotate(10deg);
     mix-blend-mode: overlay;
 }
@@ -214,7 +220,6 @@
         height: 60vh;
         margin-top: 40vh;
         display: block;
-        background-color: #ffffff;
     }
 
     .StudentDetail_profile_text_name {
@@ -283,6 +288,9 @@
         width: 5rem;
         top: 20%;
         right: 10%;
+        -moz-transform: rotate(-5deg);
+        -o-transform: rotate(-5deg);
+        -webkit-transform: rotate(-5deg);
         transform: rotate(-5deg);
     }
 }
