@@ -1,0 +1,322 @@
+@font-face {
+    font-family: 'BebasNeue-Bold';
+    src: url('../Fonts/BebasNeue Bold.ttf');
+}
+
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('../Fonts/BebasNeue Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../Fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto-Italic';
+    src: url('../Fonts/Roboto-Italic.ttf');
+}
+
+.MobileStudentList {
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    margin-top: 7.5rem;
+}
+
+.MobileStudentList_top_title {
+    padding: 0;
+    margin: 0;
+    font-family: 'BebasNeue-Bold';
+    text-transform: capitalize;
+    color: #2B3255;
+    font-size: 1.5rem;
+    letter-spacing: 0.25rem;
+    margin-left: 2rem;
+}
+
+.MobileStudentList_bottom_title {
+    padding: 0;
+    margin: 0;
+    font-family: 'BebasNeue-Bold';
+    text-transform: capitalize;
+    color: #0067EE;
+    font-size: 3rem;
+    letter-spacing: 0.25rem;
+    margin-top: 0.25rem;
+    margin-left: 2rem;
+}
+
+.MobileStudentList_slider_wrapper {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    margin: auto;
+    padding-top: 3rem;
+    padding-bottom: 7.5rem;
+}
+
+.MobileStudentList_slider_mugshot_cropper {
+    width: 17.5rem;
+    height: 17.5rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.MobileStudentList_slider_mugshot {
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;  
+}
+
+.MobileStudentList_slider_name {
+    padding: 0;
+    margin: 0;
+    font-family: 'BebasNeue-Bold';
+    color: #2B3255;
+    font-size: 2.5rem;
+    margin-top: 1.5rem;
+}
+
+.MobileStudentList_slider_title {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto';
+    color: #8f00f1;
+    font-size: 1.25rem;
+}
+
+.MobileStudentList_slider_first_shapes {
+    width: 90vw;
+    height: 20rem;
+    margin: auto;
+}
+
+.MobileStudentList_slider_first_content {
+    margin-top: -20rem;
+}
+
+.MobileStudentList_slider_first_triangle1 {
+    width: 12rem;
+    margin: auto;
+    -moz-transform: scaleX(-1) rotate(-100deg) translateY(-30px)  translateX(-40px);
+    -o-transform: scaleX(-1) rotate(-100deg) translateY(-30px)  translateX(-40px);
+    -webkit-transform: scaleX(-1) rotate(-100deg) translateY(-30px)  translateX(-40px);
+    transform: scaleX(-1) rotate(-100deg) translateY(-30px) translateX(-40px);
+    -webkit-filter:contrast(150%);
+    filter:contrast(150%);
+}
+
+.MobileStudentList_slider_first_triangle2 {
+    width: 12rem;
+    margin: auto;
+    -moz-transform: scaleX(-1) rotate(85deg) translateY(-10px) translateX(-180px);
+    -o-transform: scaleX(-1) rotate(85deg) translateY(-10px) translateX(-180px);
+    -webkit-transform: scaleX(-1) rotate(85deg) translateY(-10px) translateX(-180px);
+    transform: scaleX(-1) rotate(85deg) translateY(-10px) translateX(-180px);
+    -webkit-filter:contrast(200%) brightness(150%);
+    filter:contrast(200%) brightness(150%);
+}
+
+.MobileStudentList_slider_first_circle1 {
+    width: 11rem;
+    margin: auto;
+    -moz-transform: scaleX(-1) translateY(-360px) translateX(60px);
+    -o-transform: scaleX(-1) translateY(-360px) translateX(60px);
+    -webkit-transform: scaleX(-1) translateY(-360px) translateX(60px);
+    transform: scaleX(-1) translateY(-360px) translateX(60px);
+}
+
+.MobileStudentList_slider_first_circle2 {
+    width: 11rem;
+    margin: auto;
+    -moz-transform: scaleX(-1) translateY(-525px) translateX(70px);
+    -o-transform: scaleX(-1) translateY(-525px) translateX(70px);
+    -webkit-transform: scaleX(-1) translateY(-525px) translateX(70px);
+    transform: scaleX(-1) translateY(-525px) translateX(70px);
+}
+
+.MobileStudentList_slider_second_shapes {
+    width: 90vw;
+    height: 20rem;
+    margin: auto;
+}
+
+.MobileStudentList_slider_second_content {
+    margin-top: -20rem;
+}
+
+.MobileStudentList_slider_second_circle1 {
+    width: 14rem;
+    margin: auto;
+    -moz-transform: scaleX(-1) translateY(30px);
+    -o-transform: scaleX(-1) translateY(30px);
+    -webkit-transform: scaleX(-1) translateY(30px);
+    transform: scaleX(-1) translateY(30px);
+}
+
+.MobileStudentList_slider_second_circle2 {
+    width: 14rem;
+    margin: auto;
+    -moz-transform: scaleX(-1) translateY(-205px) translateX(-10px);
+    -o-transform: scaleX(-1) translateY(-205px) translateX(-10px);
+    -webkit-transform: scaleX(-1) translateY(-205px) translateX(-10px);
+    transform: scaleX(-1) translateY(-205px) translateX(-10px);
+}
+
+.MobileStudentList_slider_second_triangle1 {
+    width: 12rem;
+    margin: auto;
+    -moz-transform: scaleX(-1) rotate(-90deg) translateY(50px) translateX(415px);
+    -o-transform: scaleX(-1) rotate(-90deg) translateY(50px) translateX(415px);
+    -webkit-transform: scaleX(-1) rotate(-90deg) translateY(50px) translateX(415px);
+    transform: scaleX(-1) rotate(-90deg) translateY(50px) translateX(415px);
+    opacity: 0.85;
+    -webkit-filter:contrast(200%);
+    filter:contrast(200%);
+}
+
+.MobileStudentList_slider_second_triangle2 {
+    width: 12rem;
+    margin: auto;
+    -moz-transform: scaleX(-1) rotate(90deg) translateY(-25px) translateX(-630px);
+    -o-transform: scaleX(-1) rotate(90deg) translateY(-25px) translateX(-630px);
+    -webkit-transform: scaleX(-1) rotate(90deg) translateY(-25px) translateX(-630px);
+    transform: scaleX(-1) rotate(90deg) translateY(-25px) translateX(-630px);
+    -webkit-filter:contrast(200%) brightness(150%);
+    filter:contrast(200%) brightness(150%);
+}
+
+.MobileStudentList_slider_third_shapes {
+    width: 90vw;
+    height: 20rem;
+    margin: auto;
+}
+
+.MobileStudentList_slider_third_content {
+    margin-top: -20rem;
+}
+
+.MobileStudentList_slider_third_circle1 {
+    width: 14rem;
+    margin: auto;
+    -moz-transform: scaleX(-1) translateY(10px) translateY(40px);
+    -o-transform: scaleX(-1) translateY(10px) translateY(40px);
+    -webkit-transform: scaleX(-1) translateY(10px) translateY(40px);
+    transform: scaleX(-1) translateY(10px) translateY(40px);
+}
+
+.MobileStudentList_slider_third_circle2 {
+    width: 14rem;
+    margin: auto;
+    -moz-transform: scaleX(-1) translateY(-190px) translateX(10px); 
+    -o-transform: scaleX(-1) translateY(-190px) translateX(10px);
+    -webkit-transform: scaleX(-1) translateY(-190px) translateX(10px);
+    transform: scaleX(-1) translateY(-190px) translateX(10px);
+}
+
+.MobileStudentList_slider_third_triangle1 {
+    width: 12rem;
+    margin: auto;
+    -moz-transform: scaleX(-1) rotate(53deg) translateY(-180px) translateX(-270px);
+    -o-transform: scaleX(-1) rotate(53deg) translateY(-180px) translateX(-270px);
+    -webkit-transform: scaleX(-1) rotate(53deg) translateY(-180px) translateX(-270px);
+    transform: scaleX(-1) rotate(53deg) translateY(-180px) translateX(-270px);
+    opacity: 0.85;
+    -webkit-filter:contrast(200%);
+    filter:contrast(200%);
+}
+
+.MobileStudentList_slider_third_triangle2 {
+    width: 12rem;
+    margin: auto;
+    -moz-transform: scaleX(-1) rotate(-130deg) translateY(340px) translateX(420px);
+    -o-transform: scaleX(-1) rotate(-130deg) translateY(340px) translateX(420px);
+    -webkit-transform: scaleX(-1) rotate(-130deg) translateY(340px) translateX(420px);
+    transform: scaleX(-1) rotate(-130deg) translateY(340px) translateX(420px);
+    -webkit-filter:contrast(200%) brightness(150%);
+    filter:contrast(200%) brightness(150%);
+}
+
+.MobileStudentList_slider_fourth_shapes {
+    width: 90vw;
+    height: 20rem;
+    margin: auto;
+}
+
+.MobileStudentList_slider_fourth_content {
+    margin-top: -20rem;
+}
+
+.MobileStudentList_slider_fourth_circle1 {
+    width: 12rem;
+    margin: auto;
+    -moz-transform: scaleX(-1) translateY(75px) translateX(-45px);
+    -o-transform: scaleX(-1) translateY(75px) translateX(-45px);
+    -webkit-transform: scaleX(-1) translateY(75px) translateX(-45px);
+    transform: scaleX(-1) translateY(75px) translateX(-45px);
+}
+
+.MobileStudentList_slider_fourth_circle2 {
+    width: 12rem;
+    margin: auto;
+    -moz-transform: scaleX(-1) translateY(-120px) translateX(-65px);
+    -o-transform: scaleX(-1) translateY(-120px) translateX(-65px);
+    -webkit-transform: scaleX(-1) translateY(-120px) translateX(-65px);
+    transform: scaleX(-1) translateY(-120px) translateX(-65px);
+}
+
+.MobileStudentList_slider_fourth_triangle1 {
+    width: 12rem;
+    margin: auto;
+    -moz-transform: scaleX(-1) rotate(53deg) translateY(-180px) translateX(-270px);
+    -o-transform: scaleX(-1) rotate(53deg) translateY(-180px) translateX(-270px);
+    -webkit-transform: scaleX(-1) rotate(53deg) translateY(-180px) translateX(-270px);
+    transform: scaleX(-1) rotate(-175deg) translateY(370px) translateX(10px);
+    opacity: 0.85;
+    -webkit-filter:contrast(200%);
+    filter:contrast(200%);
+}
+
+.MobileStudentList_slider_fourth_triangle2 {
+    width: 12rem;
+    margin: auto;
+    -moz-transform: scaleX(-1) rotate(53deg) translateY(-180px) translateX(-270px);
+    -o-transform: scaleX(-1) rotate(53deg) translateY(-180px) translateX(-270px);
+    -webkit-transform: scaleX(-1) rotate(53deg) translateY(-180px) translateX(-270px);
+    transform: scaleX(-1) rotate(2.5deg) translateY(-625px) translateX(-15px);
+    -webkit-filter:contrast(200%) brightness(150%);
+    filter:contrast(200%) brightness(150%);
+}
+
+.slick-arrow {
+    position: absolute;
+    height: 7rem;
+    width: 3rem;
+    color: transparent;
+    top: 8.25rem;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+.slick-prev {
+    z-index: 200;
+    left: 2.5%;
+    background-image: url(Assets/prev.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.slick-next {
+    z-index: 201;
+    right: 2.5%;
+    background-image: url(Assets/next.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}

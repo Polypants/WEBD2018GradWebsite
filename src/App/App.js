@@ -7,6 +7,8 @@ import MobileTeam from '../MobileTeam/MobileTeam';
 import Event from '../Event/Event';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import StudentDetail from '../StudentDetail/StudentDetail';
+import MobileStudentList from '../MobileStudentList/MobileStudentList';
+import StudentList from '../StudentList/StudentList';
 
 import './App.css';
 
@@ -71,6 +73,14 @@ class App extends Component {
         }
         <Route path='/' component={Event} />
         <Route path='/' component={StudentDetail} />
+        {
+          this.state.isMobile &&
+          <Route path='/' component={MobileStudentList} />
+        }
+        {
+          !this.state.isMobile &&
+          <Route path='/' component={StudentList} />
+        }
       </div>
     );
   }
