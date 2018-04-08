@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import firebase from 'firebase';
+import classNames from 'classnames';
 
 import Intro from '../Intro/Intro';
-import MobileTeam from '../MobileTeam/MobileTeam';
 import Event from '../Event/Event';
-import MobileMenu from '../MobileMenu/MobileMenu';
+// import MobileMenu from '../MobileMenu/MobileMenu';
 import StudentDetail from '../StudentDetail/StudentDetail';
 import MobileStudentList from '../MobileStudentList/MobileStudentList';
 import StudentList from '../StudentList/StudentList';
@@ -20,18 +20,8 @@ class App extends Component {
       studentData: [],
       randomizedStudentData: [],
       isMobile: false,
-      windowWidth: window.innerWidth
+      isLoading: true
     };
-  }
-
-  onResize = () => {
-    this.setState({ windowWidth: window.innerWidth });
-
-    if (this.state.windowWidth < 600) {
-      this.setState({ isMobile: true });
-    } else {
-      this.setState({ isMobile: false });
-    }
   }
 
   componentDidMount() {
@@ -58,27 +48,32 @@ class App extends Component {
       // load arrays into app state
       this.setState({ dataRetrieved: true, studentData: dataArray, randomizedStudentData: randomizedStudentData });
     });
+
+    // set isLoading bool to trigger App--isLoading class for animations
+    setTimeout(() => {
+      this.setState({ isLoading: false });
+    }, 3600);
+  }
+
+  onResize = () => {
+    if (this.state.windowWidth < 600) {
+      this.setState({ isMobile: true });
+    } else {
+      this.setState({ isMobile: false });
+    }
   }
 
   render() {
+    var appClasses = classNames( 'App', { 'App--isLoading': this.state.isLoading } );
     return (
-      <div className="App">
-        <Route path='/' component={MobileMenu} />
+      <div className={appClasses}>
         <Route path='/' component={Intro} />
-        {
-          this.state.isMobile &&
-          <Route path='/' render={() => (
-            <MobileTeam studentData={this.state.randomizedStudentData} dataRetrieved={this.state.dataRetrieved} />
-          )} />
-        }
         <Route path='/' component={Event} />
         <Route path='/' component={StudentDetail} />
-        {
-          this.state.isMobile &&
+        {this.state.isMobile &&
           <Route path='/' component={MobileStudentList} />
         }
-        {
-          !this.state.isMobile &&
+        {!this.state.isMobile &&
           <Route path='/' component={StudentList} />
         }
       </div>

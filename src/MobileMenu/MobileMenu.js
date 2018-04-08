@@ -6,26 +6,25 @@ class MobileMenu extends Component {
     super(props);
     this.addActiveClass = this.addActiveClass.bind(this);
     this.state = {
-      active:false,
+      active: false,
     };
   }
+
   addActiveClass(){
     const currentState = this.state.active;
     this.setState({active:!currentState});
   }
+
   render() {
     return (
-      <div className="Container">
-          <div className="Navigation-Wrapper">
-            <span>Logo here</span>
-            <nav>
-              <a className='Hamburger-Button' href="#" onClick={this.addActiveClass}><span></span></a>
-              <ul className={this.state.active ? 'Show-Mobile-Menu': null}>
-                <li>Team</li>
-                <li>RSVP</li>
-              </ul>
-            </nav>
-          </div>
+      <div className="MobileMenu">
+        <nav>
+          <a className='Hamburger-Button' href="#" onClick={this.addActiveClass}><span></span></a>
+          <ul className={this.state.active ? 'Show-Mobile-Menu': null}>
+            <li>Team</li>
+            <li>RSVP</li>
+          </ul>
+        </nav>
       </div>
     );
   }

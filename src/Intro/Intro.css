@@ -1,212 +1,275 @@
-
-
-.intro_container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  margin-bottom: 15rem;
+.Intro {
+  height: 100vh;
 }
 
-.intro_item {
-  text-align: center;
+.Intro_logo {
+  width: 80px;
+  position: absolute;
+  top: 30px;
+  left: 10%;
+  opacity: 1;
+  transition: opacity 1s;
+  transition-delay: 1.5s;
+}
+.App--isLoading .Intro_logo {
+  opacity: 0;
 }
 
-.intro_item_title {
-    margin: 0;
-    padding: 0;
-    width: 80%;
-    position: relative;
-    left: 20rem;
-    top: 5rem;
-  }
+.Intro_socialMediaContainer {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%) translateX(10px) rotate(-90deg);
+  opacity: 1;
+  transition: opacity 1s;
+  transition-delay: 1.5s;
+}
+.App--isLoading .Intro_socialMediaContainer {
+  opacity: 0;
+}
+.Intro_socialMediaIcon {
+  width: 20px;
+  display: inline-block;
+  margin: 0 5px;
+}
+.Intro_socialMediaIcon img {
+  width: 100%;
+}
 
-.intro_item_title > h1{
-    width: 55%;
-    text-align: left;
-    float: left;
-    font-size: 4.2rem;
-    font-weight: 900;
-    line-height: 90%;
-    padding: 0;
-    margin: 0;
+.Intro_informationContainer {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  transform: translateY( -50% );
+}
+@media screen and ( max-width: 800px ) {
+  .Intro_informationContainer {
+    left: 0;
   }
+}
 
-.intro_description {
-  text-align: left;
-  float: left;
-  padding: 0;
+.Intro_titlesContainer {
+  margin-bottom: 40px;
+}
+@media screen and ( max-width: 600px ) {
+  .Intro_titlesContainer {
+    margin-bottom: 40px;
+  }
+}
+@media screen and ( max-width: 500px ) {
+  .Intro_titlesContainer {
+    margin-bottom: 30px;
+  }
+}
+
+.Intro_title {
+  font-family: 'BebasNeue-Bold';
+  color: #2B3255;
+  font-size: 80px;
   margin: 0;
-  display: block;
+  transition: transform 0.8s cubic-bezier(.76,.17,.25,.83);
+  transition-delay: 1s;
 }
-
-.intro_description_container {
-  display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
-  grid-gap: 10px;
-  /*background-color: red;*/
-  position: relative;
-  left: 2rem;
-  padding: 10px;
+.App--isLoading .Intro_title {
+  transform: translateY(100px);
 }
-
-.intro_description_container > div {
- /*background-color: purple;*/
- text-align: left;
- padding: 0;
- font-size: 1.1rem;
- /*margin-left: 3.2rem;*/
- position: relative;
- line-height: 96%;
-}
-
-.intro_description_left{
-  grid-column-start: 1;
-  grid-column-end: 4;
-  position: relative;
-}
-
-.intro_description_left_grid_container {
-  display: grid;
-  grid-template-columns: auto;
-  position: absolute;
-  bottom: 0;
-  margin:0;
-  padding: 0;
-}
-
-.intro_description_socialMedia{
-  margin-left: 5vw;
-  float: left;
-}
-
-.intro_description_socialMedia > img {
-  display: block;
-}
-
-.intro_description_eventButton {
-  top: 12rem;
-  left: -31rem;
-}
-
-.verticalLine {
-  height:5rem;
-}
-
-.verticalLine--border {
-  border-right: 1.5px solid black;
-  top: 10rem;
-  position: relative;
-}
-
-.socialMediaIcons {
-  /*background-color: green;*/
-  width: 25px;
-  position: absolute;
-  bottom: -1rem;
-}
-
-@media only screen and (max-width: 600px) {
-
-  .intro_container {
-    grid-template-columns: auto;
+@media screen and ( max-width: 600px ) {
+  .Intro_title {
+    font-size: 60px;
   }
-
-  .intro_item_title {
-    position: relative;
-    left: 4rem;
+  .App--isLoading .Intro_title {
+    transform: translateY(80px);
   }
+}
+@media screen and ( max-width: 500px ) {
+  .Intro_title {
+    font-size: 50px;
+  }
+  .App--isLoading .Intro_title {
+    transform: translateY(70px);
+  }
+}
+.Intro_titleContainer {
+  overflow: hidden;
+  position: relative;
+}
 
-  .intro_item_title > h1{
-    width: 55%;
-    text-align: left;
-    float: left;
-    font-size: 4.2rem;
-    font-weight: 900;
-    line-height: 90%;
-    padding: 0;
+.Intro_subtitle {
+  position: relative;
+  font-family: 'BebasNeue';
+  font-size: 17px;
+  color: #0067EE;
+  margin: 0;
+  margin-left: 3px;
+  letter-spacing: 3.2px;
+  transition: transform 0.7s cubic-bezier(.76,.17,.25,.83);
+  transition-delay: 1.1s;
+  line-height: 1;
+}
+.App--isLoading .Intro_subtitle {
+  transform: translateY(24px);
+}
+@media screen and ( max-width: 600px ) {
+  .Intro_subtitle {
+    font-size: 13px;
+    letter-spacing: 2.3px;
+  }
+  .App--isLoading .Intro_subtitle {
+    transform: translateY(20px);
+  }
+}
+@media screen and ( max-width: 500px ) {
+  .Intro_subtitle {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+  }
+  .App--isLoading .Intro_subtitle {
+    transform: translateY(18px);
+  }
+}
+.Intro_subtitleContainer {
+  overflow: hidden;
+  position: relative;
+}
+
+.Intro_tagline {
+  font-family: 'BebasNeue';
+  font-size: 26px;
+  color: #DB00A5;
+  margin: 0;
+  word-spacing: 0px;
+  letter-spacing: 9px;
+  opacity: 1;
+  transition: transform 0.6s cubic-bezier(.76,.17,.25,.83);
+  transition-delay: 1.2s;
+}
+.App--isLoading .Intro_tagline {
+  transform: translateY(35px);
+  transition-delay: 0s;
+}
+.Intro_taglineContainer {
+  overflow: hidden;
+  position: relative;
+  margin-top: 15px;
+  margin-left: 4px;
+}
+
+.Intro_locationContainer {
+  font-family: 'Roboto';
+  color: #2B3255;
+  overflow: hidden;
+  position: relative;
+}
+.Intro_locationInformation {
+  display: inline-block;
+  vertical-align: top;
+  transition: transform 0.8s cubic-bezier(.76,.17,.25,.83);
+  transition-delay: 1s;
+}
+.App--isLoading .Intro_locationInformation {
+  transform: translateY(-100%);
+}
+.Intro_locationInformation h3 {
+  font-size: 15px;
+  margin: 0;
+  margin-bottom: 6px;
+}
+@media screen and ( max-width: 600px ) {
+  .Intro_locationInformation h3 {
+    font-size: 15px;
     margin: 0;
+    margin-bottom: 5px;
   }
-  
-  .intro_description_left{
-    /*grid-column-start: 1;*/
-    /*grid-column-end: 4;*/
-    position: relative;
-    top: 8rem;
-    left:7rem
+}
+@media screen and ( max-width: 500px ) {
+  .Intro_locationInformation h3 {
+    font-size: 12px;
+    margin-bottom: 5px;
   }
-
-  .intro_description_container {
-    display: grid;
-    grid-template-columns: auto;
-    grid-gap: 10px;
-    /*background-color: red;*/
-    padding: 10px;
+}
+.Intro_locationInformation h4 {
+  font-size: 10px;
+  margin: 0;
+}
+@media screen and ( max-width: 600px ) {
+  .Intro_locationInformation h4 {
+    font-size: 10px;
   }
-
-  .intro_description_socialMedia{
-    margin-left: 5vw;
-    float: left;
-    /*top: -3.5rem;*/
+}
+@media screen and ( max-width: 500px ) {
+  .Intro_locationInformation h4 {
+    font-size: 10px;
   }
-
-  .intro_description_socialMedia > img {
-    display: block;
+}
+.Intro_locationIcon {
+  width: 34px;
+  margin-right: 1px;
+  transition: transform 0.8s cubic-bezier(.76,.17,.25,.83);
+  transition-delay: 1s;
+}
+.App--isLoading .Intro_locationIcon {
+  transform: translateY(-100%);
+}
+@media screen and ( max-width: 600px ) {
+  .Intro_locationIcon {
+    width: 38px;
+    margin-right: 10px;
   }
-  .intro_description_socialMedia > img {
-    display: block;
-  }
-
-  .intro_description_left_grid_container {
-    display: grid;
-    /*grid-template-columns: auto;*/
-    position: relative;
-    bottom: 0;
-    margin:0;
-    padding: 0;
-    line-height: 110%;
-    /*left: 1rem;*/
-  }
-
-  .socialMediaIcons {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    position: relative;
-    /* bottom: -1rem; */
-  }
-
-  .socialMediaIcons > img {
-    display: inline;
-  }
-
-  .verticalLine--border {
-    display: inline-block;
-    border-right: 1.5px solid black;
-    width: 50%;
-    margin-top: 2rem;
-    top: 9rem;
-    position: relative;
-  }
-
-  .intro_description_eventButton {
-    top: 9rem;
-    left: 6rem;
-  }
-
-  .verticalLine {
-    height:4rem;
-  }
-
-  .verticalLine--second{
-    padding: 5rem;
-    top: 9rem;
-    position: relative;
+}
+@media screen and ( max-width: 500px ) {
+  .Intro_locationIcon {
+    width: 28px;
   }
 }
 
+.Intro_rsvpButtonContainer {
+  text-align: center;
+  margin-top: 25px;
+  overflow: hidden;
+  position: relative;
+}
+.Intro_rsvpButton {
+  font-family: 'Roboto';
+  background-color: #4C27F2;
+  display: inline-block;
+  padding: 12px 45px;
+  border-radius: 200px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.8s cubic-bezier(.76,.17,.25,.83), opacity 0.8s cubic-bezier(.76,.17,.25,.83);
+  transition-delay: 1s;
+  opacity: 1;
+  mix-blend-mode: normal;
+}
+.App--isLoading .Intro_rsvpButton {
+  transform: translateY(-50px);
+  opacity: 0;
+}
 
-
-
-
-
-
-
-
+.Intro_downArrowContainer {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+  transition: opacity 1s;
+  transition-delay: 1.5s;
+}
+.App--isLoading .Intro_downArrowContainer {
+  opacity: 0;
+}
+.Intro_downArrowShaft {
+  width: 1px;
+  height: 60px;
+  background-color: black;
+}
+.Intro_downArrowShaftHead {
+  width: 5px;
+  height: 5px;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  /* transform-origin: 0% 0%; */
+  transform: translate(-50%, -100%) rotate(45deg) translateY(-0.5px);
+}
