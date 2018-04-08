@@ -1,6 +1,6 @@
 .EventButton {
-	background-color: lightgray;
-	color: black;
+	background-color: #4C27F2;
+	color: white;
 	text-align: center;
   font-size: 1.2rem;
   position: absolute;
@@ -9,5 +9,5 @@
   padding:3px;
   border-radius: 25px;
   padding: 12px;
-  width: 8rem;
+  width: 9rem;
 }

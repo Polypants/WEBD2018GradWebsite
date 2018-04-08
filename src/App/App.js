@@ -71,7 +71,6 @@ class App extends Component {
             <MobileTeam studentData={this.state.randomizedStudentData} dataRetrieved={this.state.dataRetrieved} />
           )} />
         }
-        <Route path='/' component={Event} />
         <Route path='/' component={StudentDetail} />
         {
           this.state.isMobile &&
@@ -81,6 +80,7 @@ class App extends Component {
           !this.state.isMobile &&
           <Route path='/' component={StudentList} />
         }
+        <Route path='/' component={Event} />
       </div>
     );
   }

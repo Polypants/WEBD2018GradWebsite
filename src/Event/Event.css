@@ -1,0 +1,73 @@
+@font-face {
+    font-family: 'BebasNeue-Bold';
+    src: url('../Fonts/BebasNeue Bold.ttf');
+}
+
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('../Fonts/BebasNeue Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../Fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto-Italic';
+    src: url('../Fonts/Roboto-Italic.ttf');
+}
+
+
+.Event_exampleReservation {
+  position: relative;
+  text-align: center;
+  background-color: white;
+  padding: 30px;
+}
+
+.text_container_4 > button {
+  position: relative;
+}
+
+.Event_Wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 30px;
+  color: white;
+  font-family: 'Roboto';
+  background-color: #4C27F2;
+  background: linear-gradient(to right, #4C27F2 , #8F00F1);
+}
+
+.Event_Item {
+ text-align: left;
+ margin-left: 30%;
+}
+
+.Event_exampleElement_title {
+  font-family: 'BebasNeue-Bold';
+}
+
+@media only screen and (max-width: 600px) {
+
+  .Event_Wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto;
+    padding: 20px;
+    color: white;
+    background-color: #4C27F2;
+    background: linear-gradient(to bottom, #4C27F2 , #8F00F1);
+  }
+
+  .Event_Item {
+    text-align: left;
+    margin-left: 18%;
+  }
+
+}
+
+
+

@@ -3,7 +3,7 @@ import './EventButton.css';
 
 class EventButton extends Component {
   render() {
-    return <button className="EventButton">RSVP</button>
+    return <button className="EventButton">RSVP now!</button>
   }
 }
 
