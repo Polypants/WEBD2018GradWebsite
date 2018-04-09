@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Intro.css';
 import Graphic from '../Graphic/Graphic';
-import Nav from '../Nav/Nav';
 
 class Intro extends Component {
   constructor(props) {
@@ -29,7 +28,6 @@ class Intro extends Component {
   render() {
     return (
       <div className="Intro">
-        <Nav />
         <Graphic
           mousePercent={this.state.mousePercent}
           isMouseInApp={this.state.isMouseInApp}

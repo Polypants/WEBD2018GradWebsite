@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import firebase from 'firebase';
 import classNames from 'classnames';
+import Nav from '../Nav/Nav';
 
 import Intro from '../Intro/Intro';
 import Event from '../Event/Event';
@@ -21,7 +22,8 @@ class App extends Component {
       studentData: [],
       randomizedStudentData: [],
       isMobile: false,
-      isLoading: true
+      isLoading: true,
+      selectedStudent: null
     };
   }
 
@@ -56,6 +58,14 @@ class App extends Component {
     }, 3600);
   }
 
+  setSelectedStudent = (student) => {
+    this.setState({ selectedStudent: student });
+  }
+
+  closeStudentDetail = (student) => {
+    this.setState({ selectedStudent: null });
+  }
+
   onResize = () => {
     if (window.innerWidth < 600) {
       this.setState({ isMobile: true });
@@ -68,8 +78,17 @@ class App extends Component {
     var appClasses = classNames( 'App', { 'App--isLoading': this.state.isLoading } );
     return (
       <div className={appClasses}>
+        <Route path='/' component={Nav} />
         <Route path='/' component={Intro} />
-        <Route path='/' component={StudentDetail} />
+        {this.state.selectedStudent !== null &&
+          <Route path='/' render={() => (
+            <StudentDetail
+              selectedStudent={this.state.selectedStudent}
+              closeStudentDetail={this.closeStudentDetail}
+            />
+          )} />
+        }
+
         {this.state.isMobile &&
           <Route path='/' render={() => (
             <MobileStudentList
@@ -81,6 +100,7 @@ class App extends Component {
           <Route path='/' render={() => (
             <StudentList
               randomizedStudentData={this.state.randomizedStudentData}
+              setSelectedStudent={this.setSelectedStudent}
             />
           )} />
         }

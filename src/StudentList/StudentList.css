@@ -57,6 +57,7 @@
     overflow: hidden;
     border-radius: 50%;
     margin: auto;
+    cursor: pointer;
 }
 
 .StudentList_content_mugshot {

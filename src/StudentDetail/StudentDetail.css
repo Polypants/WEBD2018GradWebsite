@@ -1,24 +1,4 @@
-@font-face {
-    font-family: 'BebasNeue-Bold';
-    src: url('../Fonts/BebasNeue Bold.ttf');
-}
-
-@font-face {
-    font-family: 'BebasNeue';
-    src: url('../Fonts/BebasNeue Regular.ttf');
-}
-
-@font-face {
-    font-family: 'Roboto';
-    src: url('../Fonts/Roboto-Regular.ttf');
-}
-
-@font-face {
-    font-family: 'Roboto-Italic';
-    src: url('../Fonts/Roboto-Italic.ttf');
-}
-
-.StudentDetail_profile {
+.StudentDetail {
     background-color: #ffffff;
     position: fixed;
     top: 0;
@@ -29,22 +9,8 @@
     margin: 0;
     opacity: 1.0;
     transition: height 500ms 0ms, opacity 500ms 500ms;
-    z-index: 69696969;
+    z-index: 1000;
 }
-
-.StudentDetail_profile_hide {
-    background-color: #ffffff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 0;
-    margin: 0;
-    opacity: 0.0;
-    transition: height 500ms 500ms, opacity 500ms 0ms;
-    z-index: -999;
-}
-
-
 
 .StudentDetail_closeButton {
     right: 0;
@@ -52,6 +18,7 @@
     width: 2rem;
     margin-top: 1rem;
     margin-right: 3rem;
+    cursor: pointer;
 }
 
 .StudentDetail_profile_text {
@@ -102,15 +69,8 @@
 }
 
 .StudentDetail_profile_text_icons_icon {
-    width: 1.25rem;
-    margin-left: 0.65rem;
-    margin-right: 0.65rem;
-}
-
-.StudentDetail_profile_text_icons_icon:first-child {
-    width: 1rem;
-    margin-left: 0;
-    margin-right: 0.65rem;
+    height: 20px;
+    margin-right: 16px;
 }
 
 .StudentDetail_profile_text_bio {

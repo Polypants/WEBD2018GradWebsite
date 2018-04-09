@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import './StudentList.css';
 
 class StudentList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedStudent: ""
+    };
+  }
+
   render() {
     return (
       <div className="StudentList">
@@ -9,7 +16,7 @@ class StudentList extends Component {
         <h2 className="StudentList_bottom_title">Innovators</h2>
         <section className="StudentList_content">
           {this.props.randomizedStudentData.map(function(student, index) {
-            if ((index % 6) === 0) {
+            if (index % 6 === 0) {
               return (
                 <div key={student.url} className="StudentList_content_first_wrapper the_student">
                   <div className="StudentList_content_first_wrapper_shapes">
@@ -19,7 +26,12 @@ class StudentList extends Component {
                     <img className="StudentList_content_first_circle2" src="Assets/circle.svg" alt=""></img>
                   </div>
                   <div className="StudentList_content_first_wrapper_content">
-                    <div className="StudentList_content_mugshot_cropper">
+                    <div 
+                      className="StudentList_content_mugshot_cropper"
+                      onClick={() => {
+                        this.props.setSelectedStudent(student);
+                      }}
+                    >
                       <img alt={student.name} src="Assets/monika.png" className="StudentList_content_mugshot"></img>
                     </div>
                     <h3 className="StudentList_content_name">{student.name}</h3>
@@ -27,7 +39,7 @@ class StudentList extends Component {
                   </div>
                 </div>
               );
-            } else if ((index % 6) === 1) {
+            } else if (index % 6 === 1) {
               return (
                 <div key={student.url} className="StudentList_content_second_wrapper the_student">
                   <div className="StudentList_content_second_wrapper_shapes">
@@ -37,7 +49,12 @@ class StudentList extends Component {
                     <img className="StudentList_content_second_triangle2" src="Assets/triangle1.svg" alt=""></img>
                   </div>
                   <div className="StudentList_content_second_wrapper_content">
-                    <div className="StudentList_content_mugshot_cropper">
+                    <div 
+                      className="StudentList_content_mugshot_cropper"
+                      onClick={() => {
+                        this.props.setSelectedStudent(student);
+                      }}
+                    >
                       <img alt={student.name} src="Assets/monika.png" className="StudentList_content_mugshot"></img>
                     </div>
                     <h3 className="StudentList_content_name">{student.name}</h3>
@@ -45,7 +62,7 @@ class StudentList extends Component {
                   </div>
                 </div>
               );
-            } else if ((index % 6) === 2) {
+            } else if (index % 6 === 2) {
               return (
                 <div key={student.url} className="StudentList_content_third_wrapper the_student">
                   <div className="StudentList_content_third_wrapper_shapes">
@@ -55,7 +72,12 @@ class StudentList extends Component {
                     <img className="StudentList_content_third_triangle2" src="Assets/triangle1.svg" alt=""></img>
                   </div>
                   <div className="StudentList_content_third_wrapper_content">
-                    <div className="StudentList_content_mugshot_cropper">
+                    <div
+                      className="StudentList_content_mugshot_cropper"
+                      onClick={() => {
+                        this.props.setSelectedStudent(student);
+                      }}
+                    >
                       <img alt={student.name} src="Assets/monika.png" className="StudentList_content_mugshot"></img>
                     </div>
                     <h3 className="StudentList_content_name">{student.name}</h3>
@@ -63,7 +85,7 @@ class StudentList extends Component {
                   </div>
                 </div>
               );
-            } else if ((index % 6) === 3) {
+            } else if (index % 6 === 3) {
               return (
                 <div key={student.url} className="StudentList_content_fourth_wrapper the_student">
                   <div className="StudentList_content_fourth_wrapper_shapes">
@@ -73,7 +95,12 @@ class StudentList extends Component {
                     <img className="StudentList_content_fourth_triangle2" src="Assets/triangle1.svg" alt=""></img>
                   </div>
                   <div className="StudentList_content_fourth_wrapper_content">
-                    <div className="StudentList_content_mugshot_cropper">
+                    <div
+                      className="StudentList_content_mugshot_cropper"
+                      onClick={() => {
+                        this.props.setSelectedStudent(student);
+                      }}
+                    >
                       <img alt={student.name} src="Assets/monika.png" className="StudentList_content_mugshot"></img>
                     </div>
                     <h3 className="StudentList_content_name">{student.name}</h3>
@@ -81,7 +108,7 @@ class StudentList extends Component {
                   </div>
                 </div>
               );
-            } else  if ((index % 6) === 4){
+            } else  if (index % 6 === 4){
               return (
                 <div key={student.url} className="StudentList_content_fifth_wrapper the_student">
                   <div className="StudentList_content_fifth_wrapper_shapes">
@@ -91,7 +118,12 @@ class StudentList extends Component {
                     <img className="StudentList_content_fifth_triangle2" src="Assets/triangle1.svg" alt=""></img>
                   </div>
                   <div className="StudentList_content_fifth_wrapper_content">
-                    <div className="StudentList_content_mugshot_cropper">
+                    <div
+                      className="StudentList_content_mugshot_cropper"
+                      onClick={() => {
+                        this.props.setSelectedStudent(student);
+                      }}
+                    >
                       <img alt={student.name} src="Assets/monika.png" className="StudentList_content_mugshot"></img>
                     </div>
                     <h3 className="StudentList_content_name">{student.name}</h3>
@@ -99,7 +131,7 @@ class StudentList extends Component {
                   </div>
                 </div>
               );
-            } else if ((index % 6) === 5) {
+            } else if (index % 6 === 5) {
               return (
                 <div key={student.url} className="StudentList_content_sixth_wrapper the_student">
                   <div className="StudentList_content_sixth_wrapper_shapes">
@@ -109,7 +141,12 @@ class StudentList extends Component {
                     <img className="StudentList_content_sixth_triangle2" src="Assets/triangle1.svg" alt=""></img>
                   </div>
                   <div className="StudentList_content_sixth_wrapper_content">
-                    <div className="StudentList_content_mugshot_cropper">
+                    <div
+                      className="StudentList_content_mugshot_cropper"
+                      onClick={() => {
+                        this.props.setSelectedStudent(student);
+                      }}
+                    >
                       <img alt={student.name} src="Assets/monika.png" className="StudentList_content_mugshot"></img>
                     </div>
                     <h3 className="StudentList_content_name">{student.name}</h3>
@@ -120,7 +157,7 @@ class StudentList extends Component {
             } else {
               return null;
             }
-          })}
+          }, this)}
         </section>
       </div>
     );
