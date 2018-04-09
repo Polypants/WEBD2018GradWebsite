@@ -1,0 +1,57 @@
+.Nav {
+  background-color: white;
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  opacity: 1;
+  transition: opacity 0.5s, box-shadow 0.3s, transform 0.5s;
+}
+/* .Nav--isHidden {
+  opacity: 0;
+} */
+.App--isLoading .Nav {
+  opacity: 0;
+}
+.Nav--isNotAtTop {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transform: translateY(-30px);
+}
+
+.Nav_logo {
+  width: 65px;
+  position: relative;
+  top: 18px;
+  left: 8%;
+  opacity: 1;
+  transition: transform 0.5s;
+}
+.Nav--isNotAtTop .Nav_logo {
+  transform: translateY(15px) scale(0.8);
+}
+
+.Nav_desktop {
+  position: absolute;
+  right: 8%;
+  top: 40px;
+  transition: transform 0.5s;
+}
+.Nav--isNotAtTop .Nav_desktop {
+  transform: translateY(15px);
+}
+
+.Nav_desktop ul {
+  margin: 0;
+  padding: 0;
+}
+.Nav_desktop li {
+  display: inline-block;
+  margin: 0 5px;
+  font-family: 'BebasNeue';
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 30px;
+  padding: 4px 10px;
+}

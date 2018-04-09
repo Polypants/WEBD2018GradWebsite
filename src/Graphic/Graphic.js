@@ -27,7 +27,7 @@ class Graphic extends Component {
             transform: `translate(${ (this.props.mousePercent.x - 0.5) * 150 }px, ${ (this.props.mousePercent.y - 0.5) * 150 }px)`
           } : {}}
         >
-          <img src="./Assets/triangle6.svg" alt="" className="Graphic_triangle5 Graphic_shape" transform />
+          <img src="./Assets/triangle6.svg" alt="" className="Graphic_triangle5 Graphic_shape" />
         </div>
 
         <div

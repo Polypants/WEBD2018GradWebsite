@@ -1,34 +1,15 @@
 import React, { Component } from 'react';
 import './Intro.css';
 import Graphic from '../Graphic/Graphic';
-import classNames from 'classnames';
+import Nav from '../Nav/Nav';
 
 class Intro extends Component {
   constructor(props) {
     super(props);
     this.state = {
       mousePercent: { x: 0.5, y: 0.5 },
-      isMouseInApp: false,
-      isTopBarHidden: false,
-      previousScrollY: 0
+      isMouseInApp: false
     };
-  }
-
-  componentDidMount() {
-    window.addEventListener("scroll", this.onScroll);
-  }
-
-  onScroll = () => {
-    if (window.scrollY > this.state.previousScrollY) {
-      console.log('down');
-      this.setState({ isTopBarHidden: true })
-    }
-    if (window.scrollY < this.state.previousScrollY) {
-      console.log('up');
-      this.setState({ isTopBarHidden: false })
-    }
-
-    this.setState({ previousScrollY: window.scrollY });
   }
 
   onMouseMove = (e) => {
@@ -46,25 +27,9 @@ class Intro extends Component {
   }
 
   render() {
-    var IntroClassNames = classNames(
-      "Intro", 
-      { "Intro--isTopBarHidden": this.state.isTopBarHidden }
-    );
     return (
-      <div className={IntroClassNames}>
-        <div className="Intro_logoContainer">
-          <img src="./Assets/logo.png" alt="logo" className="Intro_logo"/>
-        </div>
-        <div className="Intro_desktopNav">
-          <nav>
-            <ul>
-              <li>HOME</li>
-              <li>TEAM</li>
-              <li>EVENT</li>
-              <li>RSVP</li>
-            </ul>
-          </nav>
-        </div>
+      <div className="Intro">
+        <Nav />
         <Graphic
           mousePercent={this.state.mousePercent}
           isMouseInApp={this.state.isMouseInApp}

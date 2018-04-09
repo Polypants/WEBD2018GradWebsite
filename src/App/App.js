@@ -57,7 +57,7 @@ class App extends Component {
   }
 
   onResize = () => {
-    if (this.state.windowWidth < 600) {
+    if (window.innerWidth < 600) {
       this.setState({ isMobile: true });
     } else {
       this.setState({ isMobile: false });

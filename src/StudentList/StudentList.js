@@ -8,10 +8,10 @@ class StudentList extends Component {
         <h3 className="StudentList_top_title">Network with</h3>
         <h2 className="StudentList_bottom_title">Innovators</h2>
         <section className="StudentList_content">
-          {this.props.randomizedStudentData.map(function(student, index){
+          {this.props.randomizedStudentData.map(function(student, index) {
             if ((index % 6) === 0) {
               return (
-                <div className="StudentList_content_first_wrapper the_student">
+                <div key={student.url} className="StudentList_content_first_wrapper the_student">
                   <div className="StudentList_content_first_wrapper_shapes">
                     <img className="StudentList_content_first_triangle1" src="Assets/triangle7.svg" alt=""></img>
                     <img className="StudentList_content_first_triangle2" src="Assets/triangle1.svg" alt=""></img>
@@ -29,7 +29,7 @@ class StudentList extends Component {
               );
             } else if ((index % 6) === 1) {
               return (
-                <div className="StudentList_content_second_wrapper the_student">
+                <div key={student.url} className="StudentList_content_second_wrapper the_student">
                   <div className="StudentList_content_second_wrapper_shapes">
                     <img className="StudentList_content_second_circle1" src="Assets/circle2.svg" alt=""></img>
                     <img className="StudentList_content_second_circle2" src="Assets/circle.svg" alt=""></img>
@@ -47,7 +47,7 @@ class StudentList extends Component {
               );
             } else if ((index % 6) === 2) {
               return (
-                <div className="StudentList_content_third_wrapper the_student">
+                <div key={student.url} className="StudentList_content_third_wrapper the_student">
                   <div className="StudentList_content_third_wrapper_shapes">
                     <img className="StudentList_content_third_circle1" src="Assets/circle2.svg" alt=""></img>
                     <img className="StudentList_content_third_circle2" src="Assets/circle.svg" alt=""></img>
@@ -65,7 +65,7 @@ class StudentList extends Component {
               );
             } else if ((index % 6) === 3) {
               return (
-                <div className="StudentList_content_fourth_wrapper the_student">
+                <div key={student.url} className="StudentList_content_fourth_wrapper the_student">
                   <div className="StudentList_content_fourth_wrapper_shapes">
                     <img className="StudentList_content_fourth_circle1" src="Assets/circle2.svg" alt=""></img>
                     <img className="StudentList_content_fourth_circle2" src="Assets/circle.svg" alt=""></img>
@@ -83,7 +83,7 @@ class StudentList extends Component {
               );
             } else  if ((index % 6) === 4){
               return (
-                <div className="StudentList_content_fifth_wrapper the_student">
+                <div key={student.url} className="StudentList_content_fifth_wrapper the_student">
                   <div className="StudentList_content_fifth_wrapper_shapes">
                     <img className="StudentList_content_fifth_circle1" src="Assets/circle2.svg" alt=""></img>
                     <img className="StudentList_content_fifth_circle2" src="Assets/circle.svg" alt=""></img>
@@ -101,7 +101,7 @@ class StudentList extends Component {
               );
             } else if ((index % 6) === 5) {
               return (
-                <div className="StudentList_content_sixth_wrapper the_student">
+                <div key={student.url} className="StudentList_content_sixth_wrapper the_student">
                   <div className="StudentList_content_sixth_wrapper_shapes">
                     <img className="StudentList_content_sixth_circle1" src="Assets/circle2.svg" alt=""></img>
                     <img className="StudentList_content_sixth_circle2" src="Assets/circle.svg" alt=""></img>
