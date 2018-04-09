@@ -71,10 +71,18 @@ class App extends Component {
         <Route path='/' component={Event} />
         <Route path='/' component={StudentDetail} />
         {this.state.isMobile &&
-          <Route path='/' component={MobileStudentList} />
+          <Route path='/' render={() => (
+            <MobileStudentList
+              randomizedStudentData={this.state.randomizedStudentData}
+            />
+          )} />
         }
         {!this.state.isMobile &&
-          <Route path='/' component={StudentList} />
+          <Route path='/' render={() => (
+            <StudentList
+              randomizedStudentData={this.state.randomizedStudentData}
+            />
+          )} />
         }
       </div>
     );

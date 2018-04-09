@@ -3,16 +3,42 @@
 }
 
 .Intro_logo {
-  width: 80px;
-  position: absolute;
+  width: 75px;
+  position: fixed;
   top: 30px;
-  left: 10%;
+  left: 8%;
   opacity: 1;
   transition: opacity 1s;
   transition-delay: 1.5s;
+  z-index: 100;
 }
 .App--isLoading .Intro_logo {
   opacity: 0;
+}
+
+.Intro_desktopNav {
+  position: fixed;
+  right: 8%;
+  top: 45px;
+  opacity: 1;
+  transition: opacity 1s;
+  transition-delay: 1.5s;
+  z-index: 100;
+}
+.App--isLoading .Intro_desktopNav {
+  opacity: 0;
+}
+.Intro_desktopNav ul {
+  margin: 0;
+  padding: 0;
+}
+.Intro_desktopNav li {
+  display: inline-block;
+  margin: 0 15px;
+  font-family: 'BebasNeue';
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  cursor: pointer;
 }
 
 .Intro_socialMediaContainer {
@@ -227,6 +253,7 @@
   margin-top: 25px;
   overflow: hidden;
   position: relative;
+  text-align: left;
 }
 .Intro_rsvpButton {
   font-family: 'Roboto';

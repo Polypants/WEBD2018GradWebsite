@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import EventButton from '../EventButton/EventButton';
 import './Intro.css';
 import Graphic from '../Graphic/Graphic';
 
@@ -30,6 +29,16 @@ class Intro extends Component {
     return (
       <div className="Intro">
         <img src="./Assets/logo.png" alt="logo" className="Intro_logo"/>
+        <div className="Intro_desktopNav">
+          <nav>
+            <ul>
+              <li>HOME</li>
+              <li>TEAM</li>
+              <li>EVENT</li>
+              <li>RSVP</li>
+            </ul>
+          </nav>
+        </div>
         <Graphic
           mousePercent={this.state.mousePercent}
           isMouseInApp={this.state.isMouseInApp}
@@ -83,12 +92,12 @@ class Intro extends Component {
             </div>
           </div>
           <div className="Intro_rsvpButtonContainer">
-            <a 
+            <a
               href="https://www.eventbrite.ca/e/elevate-portfolio-show-and-networking-event-tickets-44610745942"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div className="Intro_rsvpButton">RSVP now!</div>
+              <div className="Intro_rsvpButton">RSVP Now</div>
             </a>
           </div>
         </div>
