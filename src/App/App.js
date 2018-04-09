@@ -9,6 +9,7 @@ import Event from '../Event/Event';
 import StudentDetail from '../StudentDetail/StudentDetail';
 import MobileStudentList from '../MobileStudentList/MobileStudentList';
 import StudentList from '../StudentList/StudentList';
+import Footer from '../Footer/Footer';
 
 import './App.css';
 
@@ -68,7 +69,6 @@ class App extends Component {
     return (
       <div className={appClasses}>
         <Route path='/' component={Intro} />
-        <Route path='/' component={Event} />
         <Route path='/' component={StudentDetail} />
         {this.state.isMobile &&
           <Route path='/' render={() => (
@@ -84,6 +84,8 @@ class App extends Component {
             />
           )} />
         }
+        <Route path='/' component={Event} />
+        <Route path='/' component={Footer} />
       </div>
     );
   }

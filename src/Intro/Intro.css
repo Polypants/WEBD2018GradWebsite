@@ -2,27 +2,38 @@
   height: 100vh;
 }
 
-.Intro_logo {
-  width: 75px;
+.Intro_logoContainer {
+  padding: 20px;
+  background-color: white;
+  border-radius: 50%;
+  width: 100px;
   position: fixed;
-  top: 30px;
+  top: 15px;
   left: 8%;
+  z-index: 100;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+.Intro_logo {
+  width: 100%;
   opacity: 1;
   transition: opacity 1s;
   transition-delay: 1.5s;
-  z-index: 100;
 }
 .App--isLoading .Intro_logo {
+  opacity: 0;
+}
+.Intro--isTopBarHidden .Intro_logoContainer {
   opacity: 0;
 }
 
 .Intro_desktopNav {
   position: fixed;
   right: 8%;
-  top: 45px;
+  top: 40px;
   opacity: 1;
   transition: opacity 1s;
-  transition-delay: 1.5s;
+  transition-delay: 2s;
   z-index: 100;
 }
 .App--isLoading .Intro_desktopNav {
@@ -31,14 +42,22 @@
 .Intro_desktopNav ul {
   margin: 0;
   padding: 0;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+.Intro--isTopBarHidden .Intro_desktopNav ul {
+  opacity: 0;
 }
 .Intro_desktopNav li {
   display: inline-block;
-  margin: 0 15px;
+  margin: 0 5px;
   font-family: 'BebasNeue';
   font-size: 15px;
   letter-spacing: 1.5px;
   cursor: pointer;
+  background-color: white;
+  border-radius: 30px;
+  padding: 4px 10px;
 }
 
 .Intro_socialMediaContainer {
@@ -48,7 +67,7 @@
   transform: translateY(-50%) translateX(10px) rotate(-90deg);
   opacity: 1;
   transition: opacity 1s;
-  transition-delay: 1.5s;
+  transition-delay: 2s;
 }
 .App--isLoading .Intro_socialMediaContainer {
   opacity: 0;
@@ -66,13 +85,19 @@
   position: absolute;
   top: 50%;
   left: 15%;
-  transform: translateY( -50% );
+  transform: translateY(-50%);
+  transition: transform .8s cubic-bezier(.76,.17,.25,.83);
+  transition-delay: 2.5s;
+}
+.App--isLoading .Intro_informationContainer {
+  transform: translateY(-25%);
 }
 @media screen and ( max-width: 800px ) {
   .Intro_informationContainer {
-    left: 0;
+    left: 10px;
   }
 }
+
 
 .Intro_titlesContainer {
   margin-bottom: 40px;
@@ -190,7 +215,7 @@
   display: inline-block;
   vertical-align: top;
   transition: transform 0.8s cubic-bezier(.76,.17,.25,.83);
-  transition-delay: 1s;
+  transition-delay: 2.5s;
 }
 .App--isLoading .Intro_locationInformation {
   transform: translateY(-100%);
@@ -231,7 +256,7 @@
   width: 34px;
   margin-right: 1px;
   transition: transform 0.8s cubic-bezier(.76,.17,.25,.83);
-  transition-delay: 1s;
+  transition-delay: 2.5s;
 }
 .App--isLoading .Intro_locationIcon {
   transform: translateY(-100%);
@@ -266,7 +291,7 @@
   cursor: pointer;
   position: relative;
   transition: transform 0.8s cubic-bezier(.76,.17,.25,.83), opacity 0.8s cubic-bezier(.76,.17,.25,.83);
-  transition-delay: 1s;
+  transition-delay: 2.5s;
   opacity: 1;
   mix-blend-mode: normal;
 }
@@ -282,7 +307,7 @@
   transform: translateX(-50%);
   opacity: 1;
   transition: opacity 1s;
-  transition-delay: 1.5s;
+  transition-delay: 2s;
 }
 .App--isLoading .Intro_downArrowContainer {
   opacity: 0;

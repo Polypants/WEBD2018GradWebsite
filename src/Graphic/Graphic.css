@@ -3,20 +3,17 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate( -50%, -65% ) translateX(20vw);
+  transform: translate( -40%, -65% ) translateX(20vw);
   width: 400px;
   height: 400px;
   transition: transform 1.5s cubic-bezier(.76,.17,.25,.83);
 }
 .App--isLoading .Graphic {
-  transform: translate( -50%, -65% );
+  transform: translate( -40%, -65% );
 }
 @media screen and (max-width: 800px) {
   .Graphic {
-    transform: translate( -50%, -65% );
-  }
-  .App--isLoading .Graphic {
-    transform: translate( -50%, -65% );
+    transform: translate( -40%, -65% );
   }
 }
 .Graphic_container {

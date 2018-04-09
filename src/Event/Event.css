@@ -1,58 +1,47 @@
-@font-face {
-    font-family: 'BebasNeue-Bold';
-    src: url('../Fonts/BebasNeue Bold.ttf');
-}
-
-@font-face {
-    font-family: 'BebasNeue';
-    src: url('../Fonts/BebasNeue Regular.ttf');
-}
-
-@font-face {
-    font-family: 'Roboto';
-    src: url('../Fonts/Roboto-Regular.ttf');
-}
-
-@font-face {
-    font-family: 'Roboto-Italic';
-    src: url('../Fonts/Roboto-Italic.ttf');
-}
-
-
-.Event_exampleReservation {
-  position: relative;
+.Event_reservation {
   text-align: center;
-  background-color: white;
   padding: 30px;
+  height: 80vh;
 }
 
-.text_container_4 > button {
-  position: relative;
+.Event_title {
+  font-family: 'BebasNeue';
+  letter-spacing: 5px;
+  font-size: 24px;
+  margin: 0;
+  margin-bottom: 5px;
+}
+.Event_title span {
+  font-size: 48px;
+  letter-spacing: 3px;
 }
 
-.Event_Wrapper {
+.text_container_2 p,
+.text_container_3 p {
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  line-height: 21px;
+  margin: 0;
+}
+
+.Event_wrapper {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding: 30px;
+  padding: 105px 30px;
   color: white;
   font-family: 'Roboto';
   background-color: #4C27F2;
-  background: linear-gradient(to right, #4C27F2 , #8F00F1);
+  background: linear-gradient(90deg, #4C27F2 , #8F00F1);
 }
 
-.Event_Item {
+.Event_item {
  text-align: left;
  margin-left: 30%;
 }
 
-.Event_exampleElement_title {
-  font-family: 'BebasNeue-Bold';
-}
-
 @media only screen and (max-width: 600px) {
-
-  .Event_Wrapper {
+  .Event_wrapper {
     width: 100%;
     display: grid;
     grid-template-columns: auto;
@@ -61,13 +50,31 @@
     background-color: #4C27F2;
     background: linear-gradient(to bottom, #4C27F2 , #8F00F1);
   }
-
-  .Event_Item {
+  .Event_item {
     text-align: left;
     margin-left: 18%;
   }
-
 }
 
+.Event_rsvpButton {
+  font-family: 'Roboto';
+  background-color: #4C27F2;
+  display: inline-block;
+  padding: 12px 45px;
+  border-radius: 200px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.8s cubic-bezier(.76,.17,.25,.83), opacity 0.8s cubic-bezier(.76,.17,.25,.83);
+  transition-delay: 1s;
+  opacity: 1;
+  mix-blend-mode: normal;
+}
 
+.Event_mapTitle {
+  font-family: 'BebasNeue';
+  font-size: 40px;
+  letter-spacing: 2px;
+}
 
