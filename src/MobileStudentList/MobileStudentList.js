@@ -27,7 +27,12 @@ class MobileStudentList extends Component {
                     <img className="MobileStudentList_slider_first_circle2" src="Assets/circle.svg" alt=""></img>
                   </div>
                   <div className="MobileStudentList_slider_first_content">
-                    <div className="MobileStudentList_slider_mugshot_cropper">
+                    <div 
+                      className="MobileStudentList_slider_mugshot_cropper"
+                      onClick={() => {
+                        this.props.setSelectedStudent(student);
+                      }}
+                    >
                       <img alt={student.name} src="Assets/monika.png" className="MobileStudentList_slider_mugshot"></img>
                     </div>
                     <h3 className="MobileStudentList_slider_name">{student.name}</h3>
@@ -45,7 +50,12 @@ class MobileStudentList extends Component {
                     <img className="MobileStudentList_slider_second_triangle2" src="Assets/triangle1.svg" alt=""></img>
                   </div>
                   <div className="MobileStudentList_slider_second_content">
-                    <div className="MobileStudentList_slider_mugshot_cropper">
+                    <div
+                      className="MobileStudentList_slider_mugshot_cropper"
+                      onClick={() => {
+                        this.props.setSelectedStudent(student);
+                      }}
+                    >
                       <img alt={student.name} src="Assets/monika.png" className="MobileStudentList_slider_mugshot"></img>
                     </div>
                     <h3 className="MobileStudentList_slider_name">{student.name}</h3>
@@ -63,7 +73,12 @@ class MobileStudentList extends Component {
                     <img className="MobileStudentList_slider_third_triangle2" src="Assets/triangle1.svg" alt=""></img>
                   </div>
                   <div className="MobileStudentList_slider_third_content">
-                    <div className="MobileStudentList_slider_mugshot_cropper">
+                    <div
+                      className="MobileStudentList_slider_mugshot_cropper"
+                      onClick={() => {
+                        this.props.setSelectedStudent(student);
+                      }}
+                    >
                       <img alt={student.name} src="Assets/monika.png" className="MobileStudentList_slider_mugshot"></img>
                     </div>
                     <h3 className="MobileStudentList_slider_name">{student.name}</h3>
@@ -71,7 +86,7 @@ class MobileStudentList extends Component {
                   </div>
                 </div>
               );
-            } else if (index % 4 === 3)  {
+            } else if (index % 4 === 3) {
               return (
                 <div key={student.url} className="MobileStudentList_slider_wrapper">
                   <div className="MobileStudentList_slider_fourth_shapes">
@@ -81,7 +96,12 @@ class MobileStudentList extends Component {
                     <img className="MobileStudentList_slider_fourth_triangle2" src="Assets/triangle1.svg" alt=""></img>
                   </div>
                   <div className="MobileStudentList_slider_fourth_content">
-                    <div className="MobileStudentList_slider_mugshot_cropper">
+                    <div
+                      className="MobileStudentList_slider_mugshot_cropper"
+                      onClick={() => {
+                        this.props.setSelectedStudent(student);
+                      }}
+                    >
                       <img alt={student.name} src="Assets/monika.png" className="MobileStudentList_slider_mugshot"></img>
                     </div>
                     <h3 className="MobileStudentList_slider_name">{student.name}</h3>
@@ -92,7 +112,7 @@ class MobileStudentList extends Component {
             } else {
               return null;
             }
-          })}
+          }, this)}
         </Slider>
       </div>
     );

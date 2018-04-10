@@ -1,5 +1,13 @@
 .Intro {
   height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.Intro_GraphicContainer {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .Intro_socialMediaContainer {

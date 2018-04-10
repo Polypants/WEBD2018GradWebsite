@@ -1,6 +1,6 @@
 .Graphic {
   transform-origin: 0% 0%;
-  position: absolute;
+  position: relative;
   left: 50%;
   top: 50%;
   transform: translate( -40%, -65% ) translateX(20vw);

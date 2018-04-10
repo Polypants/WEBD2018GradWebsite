@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import './StudentList.css';
 
 class StudentList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedStudent: ""
-    };
-  }
-
   render() {
     return (
       <div className="StudentList">
@@ -108,7 +101,7 @@ class StudentList extends Component {
                   </div>
                 </div>
               );
-            } else  if (index % 6 === 4){
+            } else if (index % 6 === 4) {
               return (
                 <div key={student.url} className="StudentList_content_fifth_wrapper the_student">
                   <div className="StudentList_content_fifth_wrapper_shapes">

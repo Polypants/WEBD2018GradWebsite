@@ -93,6 +93,7 @@ class App extends Component {
           <Route path='/' render={() => (
             <MobileStudentList
               randomizedStudentData={this.state.randomizedStudentData}
+              setSelectedStudent={this.setSelectedStudent}
             />
           )} />
         }

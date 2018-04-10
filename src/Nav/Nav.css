@@ -1,21 +1,30 @@
 .Nav {
-  background-color: white;
   height: 100px;
   width: 100%;
   position: fixed;
+  top: 0;
   z-index: 100;
   opacity: 1;
   transition: opacity 0.5s, box-shadow 0.3s, transform 0.5s;
 }
-/* .Nav--isHidden {
-  opacity: 0;
-} */
 .App--isLoading .Nav {
   opacity: 0;
 }
 .Nav--isNotAtTop {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   transform: translateY(-30px);
+}
+
+.Nav_background {
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.Nav--isNotAtTop .Nav_background {
+  opacity: 1;
 }
 
 .Nav_logo {
@@ -46,12 +55,9 @@
 }
 .Nav_desktop li {
   display: inline-block;
-  margin: 0 5px;
+  margin: 4px 10px;
   font-family: 'BebasNeue';
   font-size: 15px;
   letter-spacing: 1.5px;
   cursor: pointer;
-  background-color: white;
-  border-radius: 30px;
-  padding: 4px 10px;
 }

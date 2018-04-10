@@ -41,6 +41,7 @@ class Nav extends Component {
     );
     return (
       <div className={navClassNames}>
+        <div className="Nav_background"></div>
         <img src="./Assets/logo.png" alt="logo" className="Nav_logo"/>
         <div className="Nav_desktop">
           <nav>

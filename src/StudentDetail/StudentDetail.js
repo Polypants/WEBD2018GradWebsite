@@ -11,7 +11,13 @@ class StudentDetail extends Component {
             <h3 className="StudentDetail_profile_text_name">{this.props.selectedStudent.name}</h3>
             <p className="StudentDetail_profile_text_title">{this.props.selectedStudent.title}</p>
             <div className="StudentDetail_profile_text_icons">
-              {this.props.selectedStudent.twitter !== "none" &&
+              <img className="StudentDetail_profile_text_icons_icon" src="Assets/twitter.svg" alt=""></img>
+              <img className="StudentDetail_profile_text_icons_icon" src="Assets/facebook.svg" alt=""></img>
+              <img className="StudentDetail_profile_text_icons_icon" src="Assets/instagram.svg" alt=""></img>
+              <img className="StudentDetail_profile_text_icons_icon" src="Assets/behance.svg" alt=""></img>
+              <img className="StudentDetail_profile_text_icons_icon" src="Assets/linkedin.svg" alt=""></img>
+              <img className="StudentDetail_profile_text_icons_icon" src="Assets/github.svg" alt=""></img>
+              {/* {this.props.selectedStudent.twitter !== "none" &&
                 <a href={this.props.selectedStudent.twitter}>
                   <img className="StudentDetail_profile_text_icons_icon" src="Assets/twitter.svg" alt=""></img>
                 </a>
@@ -40,10 +46,19 @@ class StudentDetail extends Component {
                 <a href={this.props.selectedStudent.github}>
                   <img className="StudentDetail_profile_text_icons_icon" src="Assets/github.svg" alt=""></img>
                 </a>
-              }
+              } */}
             </div>
             <p className="StudentDetail_profile_text_bio">{this.props.selectedStudent.description}</p>
             <button className="StudentDetail_profile_text_icons_button">Portfolio</button>
+            <div className="StudentDetail_mobileBottomBar">
+              <div className="StudentDetail_mobileIcons">
+                <img className="StudentDetail_profile_text_icons_icon" src="Assets/instagram.svg" alt=""></img>
+                <img className="StudentDetail_profile_text_icons_icon" src="Assets/behance.svg" alt=""></img>
+                <img className="StudentDetail_profile_text_icons_icon" src="Assets/linkedin.svg" alt=""></img>
+                <img className="StudentDetail_profile_text_icons_icon" src="Assets/github.svg" alt=""></img>
+              </div>
+              <button className="StudentDetail_mobilePortfolioButton">Portfolio</button>
+            </div>
           </div>
         </div>
         <div className="StudentDetail_profile_mugshot" style={{ backgroundImage: 'url(/Assets/yuri.png)' }}>
