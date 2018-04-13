@@ -8,8 +8,7 @@
 }
 .Footer_line {
   height: 1px;
-  width: 90%;
-  left: 5%;
+  width: 100%;
   position: relative;
   background-color: black;
   opacity: 0.2;

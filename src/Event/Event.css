@@ -1,7 +1,7 @@
 .Event_reservation {
   text-align: center;
   padding: 30px;
-  height: 32vh;
+  height: 650px;
 }
 
 .Event_title {
@@ -14,6 +14,7 @@
 .Event_title span {
   font-size: 48px;
   letter-spacing: 3px;
+  line-height: 68px;
 }
 
 .text_container_2 p,
@@ -36,11 +37,13 @@
 }
 
 .Event_item {
- text-align: left;
- margin-left: 30%;
+  display: inline-block;
+  text-align: left;
+  margin: 0 auto;
 }
 
-@media only screen and (max-width: 600px) {
+
+@media only screen and (max-width: 800px) {
   .Event_wrapper {
     width: 100%;
     display: grid;
@@ -51,8 +54,19 @@
     background: linear-gradient(to bottom, #4C27F2 , #8F00F1);
   }
   .Event_item {
-    text-align: left;
-    margin-left: 18%;
+    margin-top: 60px;
+    margin-left: 50%;
+    margin-right: 0;
+    transform: translateX(-50%);
+  }
+  .Event_item_3 {
+    margin-bottom: 60px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .Event_item {
+    width: 80%;
   }
 }
 
@@ -84,7 +98,7 @@
 }
 
 .googleMapWrapper {
-  height: 32vh;
+  height: 650px;
   width: 100%;
   position: absolute;
   top: 0;
@@ -94,12 +108,12 @@
 
 .text_container_4 {
   width: 100%;
-  z-index: 200;
+  z-index: 10;
   /* color: black; */
   position: absolute;
   top: 0;
   left: 0;
-  height: 32vh;
+  height: 650px;
   padding-top: 7vh;
 }
 

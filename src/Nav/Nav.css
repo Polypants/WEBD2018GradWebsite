@@ -3,7 +3,7 @@
   width: 100%;
   position: fixed;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   opacity: 1;
   transition: opacity 0.5s, box-shadow 0.3s, transform 0.5s;
 }
@@ -60,4 +60,72 @@
   font-size: 15px;
   letter-spacing: 1.5px;
   cursor: pointer;
+}
+
+.Nav_mobileButton {
+  box-sizing: border-box;
+  padding: 16px 14px;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  right: 20px;
+  top: 22px;
+  transition: transform 0.5s;
+}
+.Nav--isNotAtTop .Nav_mobileButton {
+  transform: translateY(19px);
+}
+.Nav_mobileButtonLine {
+  width: 100%;
+  height: 3px;
+  background-color: #2B3255;
+  margin: 2px 0;
+  transition: transform 0.5s, opacity 0.2s;
+  opacity: 1;
+}
+.Nav_mobileButtonLine1 {
+  transform: scaleX(0.9) translateX(5%);
+}
+.Nav_mobileButtonLine2 {
+  transform: scaleX(0.7) translateX(20%);
+}
+.Nav--isMobileMenuOpen .Nav_mobileButtonLine1 {
+  transform: scaleX(1) translateX(0) rotate(-45deg) translateY(235%);
+}
+.Nav--isMobileMenuOpen .Nav_mobileButtonLine2 {
+  transform: scaleX(1) translateX(0);
+  opacity: 0;
+}
+.Nav--isMobileMenuOpen .Nav_mobileButtonLine3 {
+  transform: rotate(45deg) translateY(-235%);
+}
+
+
+.Nav_mobileMenu {
+  height: 160px;
+  width: 100%;
+  top: 0;
+  position: absolute;
+  background-color: white;
+  transform: translateY(-100%);
+  transition: transform 0.5s, opacity 0.5s;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  opacity: 0;
+}
+.Nav--isMobileMenuOpen .Nav_mobileMenu {
+  transform: translateY(0);
+  opacity: 1;
+}
+.Nav_mobileMenu ul {
+  margin: 0;
+  padding: 0;
+  margin-top: 110px;
+  text-align: center;
+}
+.Nav_mobileMenu li {
+  display: inline-block;
+  margin: 4px 10px;
+  font-family: 'BebasNeue';
+  font-size: 15px;
+  letter-spacing: 1.5px;
 }

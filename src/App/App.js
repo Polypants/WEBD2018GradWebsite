@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import firebase from 'firebase';
 import classNames from 'classnames';
-import Nav from '../Nav/Nav';
 
+import Nav from '../Nav/Nav';
 import Intro from '../Intro/Intro';
 import Event from '../Event/Event';
-// import MobileMenu from '../MobileMenu/MobileMenu';
 import StudentDetail from '../StudentDetail/StudentDetail';
 import MobileStudentList from '../MobileStudentList/MobileStudentList';
 import StudentList from '../StudentList/StudentList';
@@ -23,7 +22,8 @@ class App extends Component {
       randomizedStudentData: [],
       isMobile: false,
       isLoading: true,
-      selectedStudent: null
+      selectedStudent: null,
+      mousePos: {x: 0, y: 0}
     };
   }
 
@@ -58,6 +58,10 @@ class App extends Component {
     }, 3600);
   }
 
+  onMouseMove = (e) => {
+    this.setState({ mousePos: {x: e.clientX, y: e.clientY} });
+  }
+
   setSelectedStudent = (student) => {
     this.setState({ selectedStudent: student });
   }
@@ -75,14 +79,23 @@ class App extends Component {
   }
 
   render() {
-    var appClasses = classNames( 'App', { 'App--isLoading': this.state.isLoading } );
+    var appClasses = classNames(
+      'App',
+      {'App--isLoading': this.state.isLoading}
+    );
     return (
-      <div className={appClasses}>
-        <Route path='/' component={Nav} />
+      <div className={appClasses} onMouseMove={this.onMouseMove}>
+        <Route path='/' render={() => (
+          <Nav
+            isMobile={this.state.isMobile}
+          />
+        )} />
         <Route path='/' component={Intro} />
         {this.state.selectedStudent !== null &&
           <Route path='/' render={() => (
             <StudentDetail
+              mousePos={this.state.mousePos}
+              isMobile={this.state.isMobile}
               selectedStudent={this.state.selectedStudent}
               closeStudentDetail={this.closeStudentDetail}
             />

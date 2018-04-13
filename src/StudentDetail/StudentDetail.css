@@ -1,16 +1,44 @@
 .StudentDetail {
-    background-color: #ffffff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    padding: 0;
-    margin: 0;
-    opacity: 1.0;
-    transition: height 500ms 0ms, opacity 500ms 500ms;
-    z-index: 1000;
+  position: fixed;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
 }
+.StudentDetail--isCircleTransitioned {
+  background-color: white;
+}
+
+.StudentDetail_transitionCircle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  z-index: 100000;
+  background: linear-gradient(-225deg,#4C27F2, #8F00F1 60%);
+  opacity: 1;
+}
+.StudentDetail--isCircleDisplayNone .StudentDetail_transitionCircle {
+  display: none;
+}
+.StudentDetail--isCircleTransitioned .StudentDetail_transitionCircle {
+  opacity: 0;
+}
+
+.StudentDetail_container {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0s 0.3s;
+}
+.StudentDetail--isCircleTransitioned .StudentDetail_container {
+  opacity: 1;
+}
+
 
 .StudentDetail_mobileBottomBar {
   display: none;
@@ -68,6 +96,17 @@
     width: 45vw;
     height: 100vh;
     margin-left: 55vw;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    background-size: 100vh;
+    background-repeat: no-repeat;
+    background-position: top 0 center;
+
+}
+.StudentDetail_profile_mugshot_student {
+  height: 100%;
+  transform: translateX(-25%);
 }
 
 .StudentDetail_profile_text_wrapper {
@@ -133,54 +172,40 @@
     margin-top: 1.85rem;
 }
 
-.StudentDetail_profile_mugshot {
-    background-size: 100vh;
-    background-repeat: no-repeat;
-    background-position: top 0 center;
-}
-
 .StudentDetail_profile_mugshot_circle1 {
-    position: absolute;
-    width: 20rem;
-    top: 65%;
-    right: -3%;
+    position: relative;
+    height: 100%;
+    bottom: 70%;
+    text-align: center;
     opacity: 0.85;
     mix-blend-mode: screen;
 }
 
 .StudentDetail_profile_mugshot_circle2 {
-    position: absolute;
-    width: 12.5rem;
-    top: 47.5%;
-    right: -5%;
+    position: relative;
+    height: 100%;
+    bottom: 145%;
+    text-align: center;
     opacity: 0.85;
     mix-blend-mode: screen;
 }
 
 .StudentDetail_profile_mugshot_triangle1 {
-    position: absolute;
-    width: 27.5rem;
-    top: 50%;
-    right: -8%;
-    -moz-transform: rotate(-6deg);
-    -o-transform: rotate(-6deg);
-    -webkit-transform: rotate(-6deg);
-    transform: rotate(-6deg);
+    position: relative;
+    height: 100%;
+    bottom: 250%;
+    text-align: center;
     opacity: 0.85;
     mix-blend-mode: overlay;
 
 }
 
 .StudentDetail_profile_mugshot_triangle2 {
-    position: absolute;
-    width: 10rem;
-    top: 47.5%;
-    right: 2.5%;
+    position: relative;
+    height: 100%;
+    bottom: 340%;
+    text-align: center;
     opacity: 0.85;
-    -moz-transform: rotate(10deg);
-    -o-transform: rotate(10deg);
-    -webkit-transform: rotate(10deg);
-    transform: rotate(10deg);
     mix-blend-mode: overlay;
 }
 
@@ -199,10 +224,11 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 599px) {
     .StudentDetail {
       overflow-y: scroll;
       overflow-x: hidden;
+      height: 100%;
     }
 
     .StudentDetail_mobileBottomBar {
@@ -218,7 +244,8 @@
         margin-top: 300px;
         display: block;
         height: unset;
-        margin-bottom: 120px;
+        margin-bottom: 100px;
+        padding-bottom: 20px;
     }
 
     .StudentDetail_profile_text_name {
@@ -243,6 +270,7 @@
         height: 300px;
         margin-left: 0;
         background-size: 300px;
+        text-align: center;
     }
 
     .StudentDetail_profile_text_icons {
@@ -260,31 +288,43 @@
     }
 
     .StudentDetail_profile_mugshot_circle1 {
-        width: 12.5rem;
-        top: 30%;
-        right: -2.5%;
+      position: absolute;
+      height: 100%;
+      bottom: -48%;
+      right: 50%;
+      text-align: center;
+      opacity: 0.85;
+      mix-blend-mode: screen;
     }
 
     .StudentDetail_profile_mugshot_circle2 {
-        width: 7.5rem;
-        top: 20%;
-        right: -10%;
+      position: absolute;
+      height: 100%;
+      bottom: -27%;
+      right: 40%;
+      text-align: center;
+      opacity: 0.85;
+      mix-blend-mode: screen;
     }
 
     .StudentDetail_profile_mugshot_triangle1 {
-        width: 10rem;
-        top: 20%;
-        right: 15%;
+      position: absolute;
+      height: 100%;
+      bottom: -70%;
+      right: 36%;
+      text-align: center;
+      opacity: 0.85;
+      mix-blend-mode: overlay;
     }
 
     .StudentDetail_profile_mugshot_triangle2 {
-        width: 5rem;
-        top: 20%;
-        right: 10%;
-        -moz-transform: rotate(-5deg);
-        -o-transform: rotate(-5deg);
-        -webkit-transform: rotate(-5deg);
-        transform: rotate(-5deg);
+      position: absolute;
+      height: 100%;
+      bottom: -63%;
+      right: 30%;
+      text-align: center;
+      opacity: 0.85;
+      mix-blend-mode: overlay;
     }
 }
 

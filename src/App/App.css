@@ -1,3 +1,28 @@
 * {
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: 'BebasNeue-Bold';
+  src: url('../Fonts/BebasNeue Bold.ttf');
+}
+
+@font-face {
+  font-family: 'BebasNeue';
+  src: url('../Fonts/BebasNeue Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../Fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto-Italic';
+  src: url('../Fonts/Roboto-Italic.ttf');
+}
+
+.App--isLoading {
+  overflow-y: hidden;
+  height: 100vh;
+}
