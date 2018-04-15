@@ -22,7 +22,7 @@
   src: url('../Fonts/Roboto-Italic.ttf');
 }
 
-.App--isLoading {
+.App--isIntroLocked {
   overflow-y: hidden;
   height: 100vh;
 }

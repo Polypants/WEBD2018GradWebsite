@@ -77,10 +77,15 @@
     top: 30px;
     position: fixed;
     z-index: 100;
-    width: 2rem;
+    width: 3rem;
     margin-top: 1rem;
     margin-right: 3rem;
     cursor: pointer;
+    border-radius: 50%;
+}
+.StudentDetail_closeButton:hover {
+  transform: rotate(-90deg);
+  transition: transform 0.4s ease;
 }
 
 .StudentDetail_profile_text {
@@ -170,6 +175,7 @@
     background-color: #4C27F2;
     color: #ffffff;
     margin-top: 1.85rem;
+    cursor: pointer;
 }
 
 .StudentDetail_profile_mugshot_circle1 {
@@ -281,6 +287,9 @@
       margin-top: 1.5rem;
       margin-right: 1.5rem;
       top: 0;
+    }
+    .StudentDetail_closeButton:hover {
+      transform: rotate(0);
     }
 
     .StudentDetail_profile_text_icons_button {

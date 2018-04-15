@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import './Intro.css';
 import Graphic from '../Graphic/Graphic';
 import { Element } from 'react-scroll';
+import classNames from 'classnames';
 
 class Intro extends Component {
   constructor(props) {
     super(props);
+    this.wheelTimeout = undefined;
     this.state = {
       mousePercent: { x: 0.5, y: 0.5 },
       isMouseInApp: false
@@ -29,9 +31,14 @@ class Intro extends Component {
   render() {
     return (
       <Element name="Intro">
-        <div className="Intro">
+        <div className={classNames(
+          "Intro",
+          {"Intro--stage2": this.props.introStage === 1 },
+          {"Intro--stage3": this.props.introStage === 2 },
+          {"Intro--stage4": this.props.introStage >= 3 }
+        )}>
           <Graphic
-            mousePercent={this.state.mousePercent}
+            mousePercent={this.props.mousePercent}
             isMouseInApp={this.state.isMouseInApp}
           />
           <div className="Intro_socialMediaContainer">
@@ -75,6 +82,22 @@ class Intro extends Component {
                 <h6 className="Intro_tagline">RISE ABOVE THE ORDINARY</h6>
               </div>
             </div>
+            <div className="Intro_titlesContainer Intro_titlesContainerStage1">
+              <div className="Intro_title2Container">
+                <h1 className="Intro_title2">50+</h1>
+              </div>
+              <div className="Intro_subtitle2Container">
+                <h2 className="Intro_subtitle2">Interactive<br/>Projects</h2>
+              </div>
+            </div>
+            <div className="Intro_titlesContainer Intro_titlesContainerStage2">
+              <div className="Intro_title3Container">
+                <h1 className="Intro_title3">Discover</h1>
+              </div>
+              <div className="Intro_subtitle3Container">
+                <h2 className="Intro_subtitle3">Potential</h2>
+              </div>
+            </div>
             <div className="Intro_locationContainer">
               <img className="Intro_locationIcon" src="./Assets/location.svg" alt="location icon"/>
               <div className="Intro_locationInformation">
@@ -94,7 +117,7 @@ class Intro extends Component {
           </div>
           <div className="Intro_downArrowContainer">
             <div className="Intro_downArrowShaft"></div>
-            <div className="Intro_downArrowShaftHead"></div>
+            <div className="Intro_downArrowHead"></div>
           </div>
         </div>
       </Element>

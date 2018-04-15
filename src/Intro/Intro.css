@@ -17,7 +17,7 @@
   transform: translateY(-50%) translateX(10px) rotate(-90deg);
   opacity: 1;
   transition: opacity 1s;
-  transition-delay: 2s;
+  transition-delay: 3.6s;
 }
 .App--isLoading .Intro_socialMediaContainer {
   opacity: 0;
@@ -58,7 +58,6 @@
   }
 }
 
-
 .Intro_titlesContainer {
   margin-bottom: 40px;
 }
@@ -72,6 +71,16 @@
     margin-bottom: 30px;
   }
 }
+.Intro_titlesContainerStage1,
+.Intro_titlesContainerStage2 {
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.Intro_titlesContainerStage1{
+  margin-top: 40px;
+}
 
 .Intro_title {
   font-family: 'BebasNeue-Bold';
@@ -80,6 +89,11 @@
   margin: 0;
   transition: transform 0.8s cubic-bezier(.76,.17,.25,.83);
   transition-delay: 1s;
+}
+.Intro--stage2 .Intro_title,
+.Intro--stage3 .Intro_title {
+  transition-delay: 0s;
+  transform: translateY(-100px);
 }
 .App--isLoading .Intro_title {
   transform: translateY(100px);
@@ -116,6 +130,11 @@
   transition: transform 0.7s cubic-bezier(.76,.17,.25,.83);
   transition-delay: 1.1s;
   line-height: 1;
+}
+.Intro--stage2 .Intro_subtitle,
+.Intro--stage3 .Intro_subtitle {
+  transition-delay: 0s;
+  transform: translateY(-24px);
 }
 .App--isLoading .Intro_subtitle {
   transform: translateY(24px);
@@ -154,6 +173,11 @@
   transition: transform 0.6s cubic-bezier(.76,.17,.25,.83);
   transition-delay: 1.2s;
 }
+.Intro--stage2 .Intro_tagline,
+.Intro--stage3 .Intro_tagline {
+  transition-delay: 0s;
+  transform: translateY(-35px);
+}
 .App--isLoading .Intro_tagline {
   transform: translateY(35px);
   transition-delay: 0s;
@@ -179,6 +203,168 @@
   }
 }
 
+.Intro_title2 {
+  font-family: 'BebasNeue-Bold';
+  color: #2B3255;
+  font-size: 120px;
+  margin: 0;
+  transition: transform 0.8s cubic-bezier(.76,.17,.25,.83);
+}
+@media screen and ( max-width: 600px ) {
+  .Intro_title2 {
+    font-size: 100px;
+  }
+  .App--isLoading .Intro_title2 {
+    transform: translateY(70px);
+  }
+}
+@media screen and ( max-width: 500px ) {
+  .Intro_title2 {
+    font-size: 85px;
+  }
+  .App--isLoading .Intro_title2 {
+    transform: translateY(80px);
+  }
+}
+.Intro_title2Container {
+  position: relative;
+  display: inline-block;
+  transform: translateY(130px);
+  margin-right: 10px; 
+}
+.Intro--stage2 .Intro_title2Container {
+  transform: translateY(0);
+  transition: transform 0.8s;
+  transition-delay: 1s;
+}
+.Intro--stage3 .Intro_title2Container {
+  transform: translateY(-130px);
+  transition: transform 0.8s;
+  transition-delay: 0s;
+}
+
+.Intro_subtitle2 {
+  position: relative;
+  font-family: 'BebasNeue';
+  font-size: 46px;
+  color: #0067EE;
+  margin: 0;
+  margin-left: 3px;
+  letter-spacing: 2px;
+  transition: transform 0.8s cubic-bezier(.76,.17,.25,.83);
+  line-height: 1;
+  transform: translateY(10px);
+}
+@media screen and ( max-width: 600px ) {
+  .Intro_subtitle2 {
+    font-size: 38px;
+    letter-spacing: 2.5px;
+  }
+}
+@media screen and ( max-width: 500px ) {
+  .Intro_subtitle2 {
+    font-size: 32px;
+    letter-spacing: 1.5px;
+  }
+  .App--isLoading .Intro_subtitle2 {
+    transform: translateY(18px);
+  }
+}
+.Intro_subtitle2Container {
+  display: inline-block;
+  transform: translateY(130px);
+}
+.Intro--stage2 .Intro_subtitle2Container {
+  transform: translateY(-14px);
+  transition: transform 0.8s;
+  transition-delay: 1s;
+}
+.Intro--stage3 .Intro_subtitle2Container {
+  transform: translateY(-130px);
+  transition: transform 0.8s;
+  transition-delay: 0s;
+}
+
+.Intro_title3 {
+  font-family: 'BebasNeue-Bold';
+  color: #2B3255;
+  font-size: 110px;
+  margin: 0;
+  transform: translateY(120px);
+}
+.Intro--stage1 .Intro_title3 {
+  transform: translateY(120px);
+}
+.Intro--stage2 .Intro_title3 {
+  transform: translateY(120px);
+}
+.Intro--stage3 .Intro_title3 {
+  transform: translateY(0);
+  transition: transform 0.8s cubic-bezier(.76,.17,.25,.83);
+  transition-delay: 0.5s;
+}
+.Intro--stage4 .Intro_title3 {
+  transform: translateY(-120px);
+  transition: transform 0.8s cubic-bezier(.76,.17,.25,.83);
+}
+@media screen and ( max-width: 600px ) {
+  .Intro_title3 {
+    font-size: 90px;
+  }
+}
+@media screen and ( max-width: 500px ) {
+  .Intro_title3 {
+    font-size: 75px;
+  }
+}
+.Intro_title3Container {
+  overflow: hidden;
+  position: relative;
+}
+
+.Intro_subtitle3 {
+  position: relative;
+  font-family: 'BebasNeue';
+  font-size: 38px;
+  color: #0067EE;
+  margin: 0;
+  margin-left: 3px;
+  letter-spacing: 7.6px;
+  line-height: 1;
+  transform: translateY(38px);
+}
+.Intro--stage1 .Intro_subtitle3 {
+  transform: translateY(40px);
+}
+.Intro--stage2 .Intro_subtitle3 {
+  transform: translateY(40px);
+}
+.Intro--stage3 .Intro_subtitle3 {
+  transform: translateY(0);
+  transition: transform 0.7s cubic-bezier(.76,.17,.25,.83);
+  transition-delay: 0.5s;
+}
+.Intro--stage4 .Intro_subtitle3 {
+  transform: translateY(-38px);
+  transition: transform 0.7s cubic-bezier(.76,.17,.25,.83);
+}
+@media screen and ( max-width: 600px ) {
+  .Intro_subtitle3 {
+    font-size: 35px;
+    letter-spacing: 5px;
+  }
+}
+@media screen and ( max-width: 500px ) {
+  .Intro_subtitle3 {
+    font-size: 30px;
+    letter-spacing: 4px;
+  }
+}
+.Intro_subtitle3Container {
+  overflow: hidden;
+  position: relative;
+}
+
 .Intro_locationContainer {
   font-family: 'Roboto';
   color: #2B3255;
@@ -191,6 +377,10 @@
   transition: transform 0.8s cubic-bezier(.76,.17,.25,.83);
   transition-delay: 2.5s;
 }
+/* .Intro--stage2 .Intro_locationInformation {
+  transition-delay: 0s;
+  transform: translateY(40px);
+} */
 .App--isLoading .Intro_locationInformation {
   transform: translateY(-100%);
 }
@@ -232,6 +422,10 @@
   transition: transform 0.8s cubic-bezier(.76,.17,.25,.83);
   transition-delay: 2.5s;
 }
+/* .Intro--stage2 .Intro_locationIcon {
+  transition-delay: 0s;
+  transform: translateY(40px);
+} */
 .App--isLoading .Intro_locationIcon {
   transform: translateY(-100%);
 }
@@ -281,17 +475,40 @@
   transform: translateX(-50%);
   opacity: 1;
   transition: opacity 1s;
-  transition-delay: 2s;
+  transition-delay: 4.9s;
 }
 .App--isLoading .Intro_downArrowContainer {
   opacity: 0;
+}
+@keyframes downArrowShaft {
+  0% {
+    transform: translateY(-50%) scaleY(0);
+    opacity: 0;
+  }
+  40% {
+    transform: translateY(-10%) scaleY(0.5);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(0) scaleY(0.58);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(10%) scaleY(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(50%) scaleY(0);
+    opacity: 0;
+  }
 }
 .Intro_downArrowShaft {
   width: 1px;
   height: 60px;
   background-color: black;
+  animation: downArrowShaft 1.4s infinite linear;
 }
-.Intro_downArrowShaftHead {
+.Intro_downArrowHead {
   width: 5px;
   height: 5px;
   border-bottom: 1px solid black;

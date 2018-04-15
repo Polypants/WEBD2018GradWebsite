@@ -94,72 +94,136 @@ class StudentDetail extends Component {
               <p className="StudentDetail_profile_text_title">{this.props.selectedStudent.title}</p>
               <div className="StudentDetail_profile_text_icons">
                 {this.props.selectedStudent.twitter !== "none" &&
-                  <a href={this.props.selectedStudent.twitter}>
+                  <a
+                    href={this.props.selectedStudent.twitter}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img className="StudentDetail_profile_text_icons_icon" src="Assets/twitter.svg" alt=""></img>
                   </a>
                 }
                 {this.props.selectedStudent.facebook !== "none" &&
-                  <a href="">
+                  <a
+                    href={this.props.selectedStudent.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img className="StudentDetail_profile_text_icons_icon" src="Assets/facebook.svg" alt=""></img>
                   </a>
                 }
                 {this.props.selectedStudent.instagram !== "none" &&
-                  <a href={this.props.selectedStudent.instagram}>
+                  <a
+                    href={this.props.selectedStudent.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img className="StudentDetail_profile_text_icons_icon" src="Assets/instagram.svg" alt=""></img>
                   </a>
                 }
                 {this.props.selectedStudent.behance !== "none" &&
-                  <a href={this.props.selectedStudent.behance}>
+                  <a
+                    href={this.props.selectedStudent.behance}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img className="StudentDetail_profile_text_icons_icon" src="Assets/behance.svg" alt=""></img>
                   </a>
                 }
                 {this.props.selectedStudent.linkedin !== "none" &&
-                  <a href={this.props.selectedStudent.linkedin}>
+                  <a
+                    href={this.props.selectedStudent.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img className="StudentDetail_profile_text_icons_icon" src="Assets/linkedin.svg" alt=""></img>
                   </a>
                 }
                 {this.props.selectedStudent.github !== "none" &&
-                  <a href={this.props.selectedStudent.github}>
+                  <a
+                    href={this.props.selectedStudent.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img className="StudentDetail_profile_text_icons_icon" src="Assets/github.svg" alt=""></img>
                   </a>
                 }
               </div>
               <p className="StudentDetail_profile_text_bio">{this.props.selectedStudent.description}</p>
-              <button className="StudentDetail_profile_text_icons_button">Portfolio</button>
+              {this.props.selectedStudent.portfolio !== "none" &&
+                <a
+                  href={this.props.selectedStudent.portfolio}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="StudentDetail_profile_text_icons_button">Portfolio</button>
+                </a>
+              }
               <div className="StudentDetail_mobileBottomBar">
                 <div className="StudentDetail_mobileIcons">
                 {this.props.selectedStudent.twitter !== "none" &&
-                  <a href={this.props.selectedStudent.twitter}>
+                  <a
+                    href={this.props.selectedStudent.twitter}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img className="StudentDetail_profile_text_icons_icon" src="Assets/twitter.svg" alt=""></img>
                   </a>
                 }
                 {this.props.selectedStudent.facebook !== "none" &&
-                  <a href="">
+                  <a
+                    href={this.props.selectedStudent.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img className="StudentDetail_profile_text_icons_icon" src="Assets/facebook.svg" alt=""></img>
                   </a>
                 }
                 {this.props.selectedStudent.instagram !== "none" &&
-                  <a href={this.props.selectedStudent.instagram}>
+                  <a
+                    href={this.props.selectedStudent.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img className="StudentDetail_profile_text_icons_icon" src="Assets/instagram.svg" alt=""></img>
                   </a>
                 }
                 {this.props.selectedStudent.behance !== "none" &&
-                  <a href={this.props.selectedStudent.behance}>
+                  <a
+                    href={this.props.selectedStudent.behance}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img className="StudentDetail_profile_text_icons_icon" src="Assets/behance.svg" alt=""></img>
                   </a>
                 }
                 {this.props.selectedStudent.linkedin !== "none" &&
-                  <a href={this.props.selectedStudent.linkedin}>
+                  <a
+                    href={this.props.selectedStudent.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img className="StudentDetail_profile_text_icons_icon" src="Assets/linkedin.svg" alt=""></img>
                   </a>
                 }
                 {this.props.selectedStudent.github !== "none" &&
-                  <a href={this.props.selectedStudent.github}>
+                  <a
+                    href={this.props.selectedStudent.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img className="StudentDetail_profile_text_icons_icon" src="Assets/github.svg" alt=""></img>
                   </a>
                 }
                 </div>
-                <button className="StudentDetail_mobilePortfolioButton">Portfolio</button>
+                {this.props.selectedStudent.portfolio !== "none" &&
+                  <a
+                    href={this.props.selectedStudent.portfolio}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button className="StudentDetail_mobilePortfolioButton">Portfolio</button>
+                  </a>
+                }
               </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Nav.css';
 import classNames from 'classnames';
-import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Link } from 'react-scroll';
 
 class Nav extends Component {
   constructor(props) {
@@ -41,15 +41,16 @@ class Nav extends Component {
 
   onLinkClick = () => {
     this.setState({ isMobileMenuOpen: false });
+    this.props.onNavItemClick();
   }
 
 
   render() {
     var navClassNames = classNames(
       "Nav",
-      { "Nav--isHidden": this.state.isHidden },
-      { "Nav--isNotAtTop": this.state.isNotAtTop },
-      { "Nav--isMobileMenuOpen": this.state.isMobileMenuOpen }
+      {"Nav--isHidden": this.state.isHidden},
+      {"Nav--isNotAtTop": this.state.isNotAtTop},
+      {"Nav--isMobileMenuOpen": this.state.isMobileMenuOpen}
     );
     return (
       <div className={navClassNames}>
@@ -78,16 +79,16 @@ class Nav extends Component {
             <nav>
               <ul>
                 <li>
-                  <Link to="Intro" smooth={true} duration={500}>HOME</Link>
+                  <Link onClick={this.onLinkClick} to="Intro" smooth={true} duration={500}>HOME</Link>
                 </li>
                 <li>
-                  <Link to="Team" offset={-100} smooth={true} duration={500}>TEAM</Link>
+                  <Link onClick={this.onLinkClick} to="Team" offset={-100} smooth={true} duration={500}>TEAM</Link>
                 </li>
                 <li>
-                  <Link to="Event" offset={-65} smooth={true} duration={500}>EVENT</Link>
+                  <Link onClick={this.onLinkClick} to="Event" offset={-65} smooth={true} duration={500}>EVENT</Link>
                 </li>
                 <li>
-                  <Link to="Rsvp" smooth={true} duration={500}>RSVP</Link>
+                  <Link onClick={this.onLinkClick} to="Rsvp" smooth={true} duration={500}>RSVP</Link>
                 </li>
               </ul>
             </nav>

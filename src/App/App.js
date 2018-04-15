@@ -23,11 +23,19 @@ class App extends Component {
       isMobile: false,
       isLoading: true,
       selectedStudent: null,
-      mousePos: {x: 0, y: 0}
+      mousePos: {x: 0, y: 0},
+      mousePercent: { x: 0.5, y: 0.5 },
+      isIntroLocked: true,
+      introStage: 0,
+      isWheeling: false
     };
   }
 
   componentDidMount() {
+    setTimeout(() => {
+      window.addEventListener("wheel", this.onWheel);
+    }, 3600);
+
     this.onResize();
     window.addEventListener("resize", this.onResize);
 
@@ -58,8 +66,38 @@ class App extends Component {
     }, 3600);
   }
 
+  onWheel = (e) => {
+    if (e.deltaY > 0) {
+      if (!this.state.isWheeling) {
+        this.setState({introStage: this.state.introStage + 1});
+      }
+      this.setState({isWheeling: true});
+      clearTimeout(this.wheelTimeout);
+      this.wheelTimeout = setTimeout(() => {
+        this.wheelTimeout = undefined;
+        this.setState({isWheeling: false});
+      }, 250);
+    }
+    if (this.state.introStage === 3 
+        && this.state.isIntroLocked) {
+      this.setState({isIntroLocked: false});
+    }
+  }
+
+  onNavItemClick = () => {
+    this.setState({
+      isIntroLocked: false,
+      introStage: this.state.introStage + 10
+    });
+  }
+
   onMouseMove = (e) => {
-    this.setState({ mousePos: {x: e.clientX, y: e.clientY} });
+    var percentY = e.clientY / window.innerHeight;
+    var percentX = e.clientX / window.innerWidth;
+    this.setState({ 
+      mousePos: {x: e.clientX, y: e.clientY},
+      mousePercent: {x: percentX, y: percentY}
+    });
   }
 
   setSelectedStudent = (student) => {
@@ -81,16 +119,23 @@ class App extends Component {
   render() {
     var appClasses = classNames(
       'App',
-      {'App--isLoading': this.state.isLoading}
+      {'App--isLoading': this.state.isLoading},
+      {'App--isIntroLocked': this.state.isIntroLocked}
     );
     return (
       <div className={appClasses} onMouseMove={this.onMouseMove}>
         <Route path='/' render={() => (
           <Nav
             isMobile={this.state.isMobile}
+            onNavItemClick={this.onNavItemClick}
           />
         )} />
-        <Route path='/' component={Intro} />
+        <Route path='/' render={() => (
+          <Intro
+            mousePercent={this.state.mousePercent}
+            introStage={this.state.introStage}
+          />
+        )} />
         {this.state.selectedStudent !== null &&
           <Route path='/' render={() => (
             <StudentDetail

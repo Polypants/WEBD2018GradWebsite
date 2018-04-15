@@ -285,12 +285,37 @@
     outline: none;
 }
 
+@keyframes slick-prev {
+  0% {
+    transform: translateX(-3px);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+  100% {
+    transform: translateX(-3px);
+  }
+}
+
 .slick-prev {
     z-index: 200;
     left: 2.5%;
     background-image: url(Assets/prev.svg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    animation: slick-prev 2s infinite ease-in-out;
+}
+
+@keyframes slick-next {
+  0% {
+    transform: translateX(3px);
+  }
+  50% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(3px);
+  }
 }
 
 .slick-next {
@@ -299,4 +324,5 @@
     background-image: url(Assets/next.svg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    animation: slick-next 2s infinite ease-in-out;
 }
