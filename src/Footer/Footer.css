@@ -1,3 +1,10 @@
+.App--isIntroLocked .Footer {
+  display: none;
+}
+.App--isStudentDetailCircleTransitioned .Footer {
+  display: none;
+}
+
 .Footer p {
   font-family: 'Roboto';
   font-size: 11px;
@@ -6,6 +13,7 @@
   letter-spacing: 0.5px;
   margin: 22px;
 }
+
 .Footer_line {
   height: 1px;
   width: 100%;

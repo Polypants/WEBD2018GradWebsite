@@ -1,7 +1,14 @@
+.App--isIntroLocked .Event {
+  display: none;
+}
+.App--isStudentDetailCircleTransitioned .Event {
+  display: none;
+}
+
 .Event_reservation {
   text-align: center;
   padding: 30px;
-  height: 650px;
+  height: 500px;
 }
 
 .Event_title {
@@ -84,13 +91,15 @@
   transition-delay: 1s;
   opacity: 1;
   mix-blend-mode: normal;
+  pointer-events: all;
 }
 
 .Event_mapTitle {
   font-family: 'BebasNeue';
   font-size: 40px;
   letter-spacing: 2px;
-  padding: 0 10px;
+  margin: 0;
+  margin-bottom: 100px;
 }
 
 #GoogleMap {
@@ -98,7 +107,7 @@
 }
 
 .googleMapWrapper {
-  height: 650px;
+  height: 500px;
   width: 100%;
   position: absolute;
   top: 0;
@@ -109,12 +118,11 @@
 .text_container_4 {
   width: 100%;
   z-index: 10;
-  /* color: black; */
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 0;
-  height: 650px;
-  padding-top: 7vh;
+  pointer-events: none;
+  transform: translateY(-50%);
 }
 
 

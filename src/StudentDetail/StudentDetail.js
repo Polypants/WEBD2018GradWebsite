@@ -1,44 +1,45 @@
 import React, { Component } from 'react';
-import './StudentDetail.css';
+
 import classNames from 'classnames';
+
+import './StudentDetail.css';
 
 class StudentDetail extends Component {
   constructor(props) {
     super(props);
-
     this.transitionCircleStyles = {
       height: `${window.innerHeight + window.innerWidth}px`,
       width: `${window.innerHeight + window.innerWidth}px`,
       transform: `translateX(${this.props.mousePos.x - (window.innerWidth / 2)}px) translateY(${this.props.mousePos.y - (window.innerHeight / 2)}px) translate(-50%, -50%) scale(0)`,
-      transition: `none`
+      transition: 'none'
     }
-
     this.state = {
-      scrollY: 0,
       isLoading: true,
       isLoaded: false,
       isCircleTransitioned: false,
-      isCircleDisplayNone: false
+      isCircleDisplayNone: false,
+      scrollY: 0,
     };
   }
 
   componentDidMount() {
-    this.refs.transitionCircle.addEventListener("transitionend", () => {
+    this.refs.transitionCircle.addEventListener('transitionend', () => {
       this.setState({ isCircleTransitioned: true });
+      this.props.onStudentDetailCircleTransitioned();
       setTimeout(() => {
         this.setState({ isCircleDisplayNone: true });
       }, 1100);
     }, false);
 
-    this.refs.StudentDetail.addEventListener("scroll", this.onScroll);
+    this.refs.StudentDetail.addEventListener('scroll', this.onScroll);
 
     setTimeout(() => {
       this.setState({ isLoading: false });
       this.transitionCircleStyles = {
         height: `${window.innerHeight + window.innerWidth}px`,
         width: `${window.innerHeight + window.innerWidth}px`,
-        transform: `translateX(0) translateY(0) translate(-50%, -50%) scale(1)`,
-        transition: `transform 0.5s cubic-bezier(.5,.01,1,.46), opacity 1s 0.3s`
+        transform: 'translateX(0) translateY(0) translate(-50%, -50%) scale(1)',
+        transition: 'transform 0.5s cubic-bezier(.5,.01,1,.46), opacity 1s 0.3s'
       };
     }, 0);
 
@@ -48,11 +49,15 @@ class StudentDetail extends Component {
   }
 
   componentWillUnmount() {
-    this.refs.StudentDetail.removeEventListener("scroll", this.onScroll);
+    this.refs.StudentDetail.removeEventListener('scroll', this.onScroll);
   }
 
   onScroll = () => {
-    this.setState({ scrollY: this.refs.StudentDetail.scrollTop });
+    this.setState({scrollY: this.refs.StudentDetail.scrollTop});
+  }
+
+  createDescriptionHTML = () => {
+    return {__html: this.props.selectedStudent.description};
   }
 
   render() {
@@ -63,20 +68,9 @@ class StudentDetail extends Component {
       {'StudentDetail--isCircleTransitioned': this.state.isCircleTransitioned},
       {'StudentDetail--isCircleDisplayNone': this.state.isCircleDisplayNone}
     );
-    // var transitionCircleStyles = {};
-    // if (this.state.isLoading) {
-    //   transitionCircleStyles = {}
-    // } else {
-    //   transitionCircleStyles = {
-    //     height: `${window.innerHeight + window.innerWidth}px`,
-    //     width: `${window.innerHeight + window.innerWidth}px`,
-    //     transform: `translate(-50%, -50%) scale(1) translateX(0) translateY(0)`,
-    //     transition: `transform 10s cubic-bezier(.4,0,1,.6), opacity 0.8s 10s`
-    //   }
-    // }
     return (
       <div className={StudentDetailClasses} ref="StudentDetail">
-        <div 
+        <div
           className="StudentDetail_transitionCircle"
           style={this.transitionCircleStyles}
           ref="transitionCircle"
@@ -93,63 +87,93 @@ class StudentDetail extends Component {
               <h3 className="StudentDetail_profile_text_name">{this.props.selectedStudent.name}</h3>
               <p className="StudentDetail_profile_text_title">{this.props.selectedStudent.title}</p>
               <div className="StudentDetail_profile_text_icons">
-                {this.props.selectedStudent.twitter !== "none" &&
+                {this.props.selectedStudent.twitter !== 'none' &&
                   <a
                     href={this.props.selectedStudent.twitter}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <img className="StudentDetail_profile_text_icons_icon" src="Assets/twitter.svg" alt=""></img>
+                    <img
+                      className="StudentDetail_profile_text_icons_icon"
+                      src="Assets/twitter.svg"
+                      alt=""
+                    ></img>
                   </a>
                 }
-                {this.props.selectedStudent.facebook !== "none" &&
+                {this.props.selectedStudent.facebook !== 'none' &&
                   <a
                     href={this.props.selectedStudent.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <img className="StudentDetail_profile_text_icons_icon" src="Assets/facebook.svg" alt=""></img>
+                    <img
+                      className="StudentDetail_profile_text_icons_icon"
+                      src="Assets/facebook.svg"
+                      alt=""
+                    ></img>
                   </a>
                 }
-                {this.props.selectedStudent.instagram !== "none" &&
+                {this.props.selectedStudent.instagram !== 'none' &&
                   <a
                     href={this.props.selectedStudent.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <img className="StudentDetail_profile_text_icons_icon" src="Assets/instagram.svg" alt=""></img>
+                    <img
+                      className="StudentDetail_profile_text_icons_icon"
+                      src="Assets/instagram.svg"
+                      alt=""
+                    ></img>
                   </a>
                 }
-                {this.props.selectedStudent.behance !== "none" &&
+                {this.props.selectedStudent.behance !== 'none' &&
                   <a
                     href={this.props.selectedStudent.behance}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <img className="StudentDetail_profile_text_icons_icon" src="Assets/behance.svg" alt=""></img>
+                    <img
+                      className="StudentDetail_profile_text_icons_icon"
+                      src="Assets/behance.svg"
+                      alt=""
+                    ></img>
                   </a>
                 }
-                {this.props.selectedStudent.linkedin !== "none" &&
+                {this.props.selectedStudent.linkedin !== 'none' &&
                   <a
                     href={this.props.selectedStudent.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <img className="StudentDetail_profile_text_icons_icon" src="Assets/linkedin.svg" alt=""></img>
+                    <img
+                      className="StudentDetail_profile_text_icons_icon"
+                      src="Assets/linkedin.svg"
+                      alt=""
+                    ></img>
                   </a>
                 }
-                {this.props.selectedStudent.github !== "none" &&
+                {this.props.selectedStudent.github !== 'none' &&
                   <a
                     href={this.props.selectedStudent.github}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <img className="StudentDetail_profile_text_icons_icon" src="Assets/github.svg" alt=""></img>
+                    <img
+                      className="StudentDetail_profile_text_icons_icon"
+                      src="Assets/github.svg"
+                      alt=""
+                    ></img>
                   </a>
                 }
               </div>
-              <p className="StudentDetail_profile_text_bio">{this.props.selectedStudent.description}</p>
-              {this.props.selectedStudent.portfolio !== "none" &&
+              <div className="StudentDetail_profile_text_bio_container">
+                <p
+                  className="StudentDetail_profile_text_bio"
+                  dangerouslySetInnerHTML={this.createDescriptionHTML()}
+                ></p>
+                <div className="StudentDetail_profile_text_bio_shadow"></div>
+              </div>
+              {this.props.selectedStudent.portfolio !== 'none' &&
                 <a
                   href={this.props.selectedStudent.portfolio}
                   target="_blank"
@@ -160,62 +184,86 @@ class StudentDetail extends Component {
               }
               <div className="StudentDetail_mobileBottomBar">
                 <div className="StudentDetail_mobileIcons">
-                {this.props.selectedStudent.twitter !== "none" &&
+                {this.props.selectedStudent.twitter !== 'none' &&
                   <a
                     href={this.props.selectedStudent.twitter}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <img className="StudentDetail_profile_text_icons_icon" src="Assets/twitter.svg" alt=""></img>
+                    <img
+                      className="StudentDetail_profile_text_icons_icon"
+                      src="Assets/twitter.svg"
+                      alt=""
+                    ></img>
                   </a>
                 }
-                {this.props.selectedStudent.facebook !== "none" &&
+                {this.props.selectedStudent.facebook !== 'none' &&
                   <a
                     href={this.props.selectedStudent.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <img className="StudentDetail_profile_text_icons_icon" src="Assets/facebook.svg" alt=""></img>
+                    <img
+                      className="StudentDetail_profile_text_icons_icon"
+                      src="Assets/facebook.svg"
+                      alt=""
+                    ></img>
                   </a>
                 }
-                {this.props.selectedStudent.instagram !== "none" &&
+                {this.props.selectedStudent.instagram !== 'none' &&
                   <a
                     href={this.props.selectedStudent.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <img className="StudentDetail_profile_text_icons_icon" src="Assets/instagram.svg" alt=""></img>
+                    <img
+                      className="StudentDetail_profile_text_icons_icon"
+                      src="Assets/instagram.svg"
+                      alt=""
+                    ></img>
                   </a>
                 }
-                {this.props.selectedStudent.behance !== "none" &&
+                {this.props.selectedStudent.behance !== 'none' &&
                   <a
                     href={this.props.selectedStudent.behance}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <img className="StudentDetail_profile_text_icons_icon" src="Assets/behance.svg" alt=""></img>
+                    <img
+                      className="StudentDetail_profile_text_icons_icon"
+                      src="Assets/behance.svg"
+                      alt=""
+                    ></img>
                   </a>
                 }
-                {this.props.selectedStudent.linkedin !== "none" &&
+                {this.props.selectedStudent.linkedin !== 'none' &&
                   <a
                     href={this.props.selectedStudent.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <img className="StudentDetail_profile_text_icons_icon" src="Assets/linkedin.svg" alt=""></img>
+                    <img
+                      className="StudentDetail_profile_text_icons_icon"
+                      src="Assets/linkedin.svg"
+                      alt=""
+                    ></img>
                   </a>
                 }
-                {this.props.selectedStudent.github !== "none" &&
+                {this.props.selectedStudent.github !== 'none' &&
                   <a
                     href={this.props.selectedStudent.github}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <img className="StudentDetail_profile_text_icons_icon" src="Assets/github.svg" alt=""></img>
+                    <img
+                      className="StudentDetail_profile_text_icons_icon"
+                      src="Assets/github.svg"
+                      alt=""
+                    ></img>
                   </a>
                 }
                 </div>
-                {this.props.selectedStudent.portfolio !== "none" &&
+                {this.props.selectedStudent.portfolio !== 'none' &&
                   <a
                     href={this.props.selectedStudent.portfolio}
                     target="_blank"
@@ -227,25 +275,27 @@ class StudentDetail extends Component {
               </div>
             </div>
           </div>
-          <div className="StudentDetail_profile_mugshot">
+          <div
+            className="StudentDetail_profile_mugshot"
+          >
             <img
               style={this.props.isMobile ? {
-                transform: `translateY(${ this.state.scrollY * 0.50 }px)`,
-                filter: `blur(${ this.state.scrollY / 50 }px)`,
+                transform: `translateY(${this.state.scrollY * 0.50}px)`,
+                filter: `blur(${this.state.scrollY / 50}px)`,
                 opacity: 1 - (this.state.scrollY / 200)
               } : {
-                transform: `translateX(-25%)`
+                transform: 'translateX(-25%)'
               }}
-              className="StudentDetail_profile_mugshot_student" 
+              className="StudentDetail_profile_mugshot_student"
               src="Assets/yuri.png"
               alt=""
             ></img>
             <img
               style={this.props.isMobile ? {
-                transform: `translateY(${ this.state.scrollY * 0.50 }px) translateX(55%) scale(0.4)`,
-                filter: `blur(${ this.state.scrollY / 50 }px)`
+                transform: `translateY(${this.state.scrollY * 0.50}px) translateX(55%) scale(0.4)`,
+                filter: `blur(${this.state.scrollY / 50}px)`
               } : {
-                transform: `translateX(0%) scale(0.3)`
+                transform: 'translateX(0%) scale(0.3)'
               }}
               className="StudentDetail_profile_mugshot_circle1"
               src="Assets/circle2.svg"
@@ -253,10 +303,10 @@ class StudentDetail extends Component {
             ></img>
             <img
               style={this.props.isMobile ? {
-                transform: `translateY(${ this.state.scrollY * 0.50 }px) translateX(55%) scale(0.2)`,
-                filter: `blur(${ this.state.scrollY / 50 }px)`
+                transform: `translateY(${this.state.scrollY * 0.50}px) translateX(55%) scale(0.2)`,
+                filter: `blur(${this.state.scrollY / 50}px)`
               } : {
-                transform: `translateX(-25%) scale(0.5)`
+                transform: 'translateX(-25%) scale(0.5)'
               }}
               className="StudentDetail_profile_mugshot_circle2"
               src="Assets/circle2.svg"
@@ -264,10 +314,10 @@ class StudentDetail extends Component {
             ></img>
             <img
               style={this.props.isMobile ? {
-                transform: `translateY(${ this.state.scrollY * 0.50 }px) translateX(55%) rotate(-10deg)`,
-                filter: `blur(${ this.state.scrollY / 50 }px)`
+                transform: `translateY(${this.state.scrollY * 0.50}px) translateX(55%) rotate(-10deg)`,
+                filter: `blur(${this.state.scrollY / 50}px)`
               } : {
-                transform: `translateX(10%)`
+                transform: 'translateX(10%)'
               }}
               className="StudentDetail_profile_mugshot_triangle1"
               src="Assets/triangle3.svg"
@@ -275,10 +325,10 @@ class StudentDetail extends Component {
             ></img>
             <img
               style={this.props.isMobile ? {
-                transform: `translateY(${ this.state.scrollY * 0.50 }px) translateX(55%) rotate(10deg)`,
-                filter: `blur(${ this.state.scrollY / 50 }px)`
+                transform: `translateY(${this.state.scrollY * 0.50}px) translateX(55%) rotate(10deg)`,
+                filter: `blur(${this.state.scrollY / 50}px)`
               } : {
-                transform: `translateX(25%) rotate(15deg)`
+                transform: 'translateX(25%) rotate(15deg)'
               }}
               className="StudentDetail_profile_mugshot_triangle2"
               src="Assets/triangle5.svg"

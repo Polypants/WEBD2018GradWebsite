@@ -1,6 +1,13 @@
+.App--isLoading .Intro {
+  position: absolute;
+}
+.App--isStudentDetailCircleTransitioned .Intro {
+  display: none;
+}
+
 .Intro {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -60,6 +67,10 @@
 
 .Intro_titlesContainer {
   margin-bottom: 40px;
+  display: block;
+}
+.Intro--isGraphicOutOfView .Intro_titlesContainer {
+  display: none;
 }
 @media screen and ( max-width: 600px ) {
   .Intro_titlesContainer {
@@ -377,14 +388,11 @@
   transition: transform 0.8s cubic-bezier(.76,.17,.25,.83);
   transition-delay: 2.5s;
 }
-/* .Intro--stage2 .Intro_locationInformation {
-  transition-delay: 0s;
-  transform: translateY(40px);
-} */
 .App--isLoading .Intro_locationInformation {
   transform: translateY(-100%);
 }
 .Intro_locationInformation h3 {
+  font-weight: 400;
   font-size: 15px;
   margin: 0;
   margin-bottom: 6px;
@@ -403,6 +411,7 @@
   }
 }
 .Intro_locationInformation h4 {
+  font-weight: 400;
   font-size: 10px;
   margin: 0;
 }
@@ -513,6 +522,5 @@
   height: 5px;
   border-bottom: 1px solid black;
   border-right: 1px solid black;
-  /* transform-origin: 0% 0%; */
-  transform: translate(-50%, -100%) rotate(45deg) translateY(-0.5px);
+  transform: translate(-50%, -100%) rotate(45deg) translateY(-0.75px);
 }

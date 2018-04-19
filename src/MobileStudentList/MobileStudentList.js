@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import Slider from 'react-slick'
+
+import Slider from 'react-slick';
+import { Element } from 'react-scroll';
+
 import './MobileStudentListSlider.css';
 import './MobileStudentList.css';
-import { Element } from 'react-scroll';
 
 class MobileStudentList extends Component {
   render() {
@@ -23,10 +25,26 @@ class MobileStudentList extends Component {
                 return (
                   <div key={student.url} className="MobileStudentList_slider_wrapper">
                     <div className="MobileStudentList_slider_first_shapes">
-                      <img className="MobileStudentList_slider_first_triangle1" src="Assets/triangle7.svg" alt=""></img>
-                      <img className="MobileStudentList_slider_first_triangle2" src="Assets/triangle1.svg" alt=""></img>
-                      <img className="MobileStudentList_slider_first_circle1" src="Assets/circle2.svg" alt=""></img>
-                      <img className="MobileStudentList_slider_first_circle2" src="Assets/circle.svg" alt=""></img>
+                      <img 
+                        className="MobileStudentList_slider_first_triangle1"
+                        src="Assets/triangle7.svg"
+                        alt=""
+                      ></img>
+                      <img
+                        className="MobileStudentList_slider_first_triangle2"
+                        src="Assets/triangle1.svg"
+                        alt=""
+                      ></img>
+                      <img
+                        className="MobileStudentList_slider_first_circle1"
+                        src="Assets/circle2.svg"
+                        alt=""
+                      ></img>
+                      <img
+                        className="MobileStudentList_slider_first_circle2"
+                        src="Assets/circle.svg"
+                        alt=""
+                      ></img>
                     </div>
                     <div 
                     className="MobileStudentList_slider_first_content"
@@ -34,10 +52,12 @@ class MobileStudentList extends Component {
                       this.props.setSelectedStudent(student);
                     }}
                     >
-                      <div 
-                        className="MobileStudentList_slider_mugshot_cropper"
-                      >
-                        <img alt={student.name} src="Assets/monika.png" className="MobileStudentList_slider_mugshot"></img>
+                      <div className="MobileStudentList_slider_mugshot_cropper">
+                        <img
+                          alt={student.name}
+                          src="Assets/monika.png"
+                          className="MobileStudentList_slider_mugshot"
+                        ></img>
                       </div>
                       <h3 className="MobileStudentList_slider_name">{student.name}</h3>
                       <h3 className="MobileStudentList_slider_title">{student.title}</h3>
@@ -48,10 +68,26 @@ class MobileStudentList extends Component {
                 return (
                   <div key={student.url} className="MobileStudentList_slider_wrapper">
                     <div className="MobileStudentList_slider_second_shapes">
-                      <img className="MobileStudentList_slider_second_circle1" src="Assets/circle2.svg" alt=""></img>
-                      <img className="MobileStudentList_slider_second_circle2" src="Assets/circle.svg" alt=""></img>
-                      <img className="MobileStudentList_slider_second_triangle1" src="Assets/triangle7.svg" alt=""></img>
-                      <img className="MobileStudentList_slider_second_triangle2" src="Assets/triangle1.svg" alt=""></img>
+                      <img
+                        className="MobileStudentList_slider_second_circle1"
+                        src="Assets/circle2.svg"
+                        alt=""
+                      ></img>
+                      <img
+                        className="MobileStudentList_slider_second_circle2"
+                        src="Assets/circle.svg"
+                        alt=""
+                      ></img>
+                      <img
+                        className="MobileStudentList_slider_second_triangle1"
+                        src="Assets/triangle7.svg"
+                        alt=""
+                      ></img>
+                      <img
+                        className="MobileStudentList_slider_second_triangle2"
+                        src="Assets/triangle1.svg"
+                        alt=""
+                      ></img>
                     </div>
                     <div 
                       className="MobileStudentList_slider_second_content"
@@ -59,10 +95,12 @@ class MobileStudentList extends Component {
                         this.props.setSelectedStudent(student);
                       }}
                     >
-                      <div
-                        className="MobileStudentList_slider_mugshot_cropper"
-                      >
-                        <img alt={student.name} src="Assets/monika.png" className="MobileStudentList_slider_mugshot"></img>
+                      <div className="MobileStudentList_slider_mugshot_cropper">
+                        <img
+                          alt={student.name}
+                          src="Assets/monika.png"
+                          className="MobileStudentList_slider_mugshot"
+                        ></img>
                       </div>
                       <h3 className="MobileStudentList_slider_name">{student.name}</h3>
                       <h3 className="MobileStudentList_slider_title">{student.title}</h3>
@@ -73,10 +111,26 @@ class MobileStudentList extends Component {
                 return (
                   <div key={student.url} className="MobileStudentList_slider_wrapper">
                     <div className="MobileStudentList_slider_third_shapes">
-                      <img className="MobileStudentList_slider_third_circle1" src="Assets/circle2.svg" alt=""></img>
-                      <img className="MobileStudentList_slider_third_circle2" src="Assets/circle.svg" alt=""></img>
-                      <img className="MobileStudentList_slider_third_triangle1" src="Assets/triangle7.svg" alt=""></img>
-                      <img className="MobileStudentList_slider_third_triangle2" src="Assets/triangle1.svg" alt=""></img>
+                      <img
+                        className="MobileStudentList_slider_third_circle1"
+                        src="Assets/circle2.svg"
+                        alt=""
+                      ></img>
+                      <img
+                        className="MobileStudentList_slider_third_circle2"
+                        src="Assets/circle.svg"
+                        alt=""
+                      ></img>
+                      <img
+                        className="MobileStudentList_slider_third_triangle1"
+                        src="Assets/triangle7.svg"
+                        alt=""
+                      ></img>
+                      <img
+                        className="MobileStudentList_slider_third_triangle2"
+                        src="Assets/triangle1.svg"
+                        alt=""
+                      ></img>
                     </div>
                     <div
                       className="MobileStudentList_slider_third_content"
@@ -90,7 +144,11 @@ class MobileStudentList extends Component {
                           this.props.setSelectedStudent(student);
                         }}
                       >
-                        <img alt={student.name} src="Assets/monika.png" className="MobileStudentList_slider_mugshot"></img>
+                        <img
+                          alt={student.name}
+                          src="Assets/monika.png"
+                          className="MobileStudentList_slider_mugshot"
+                        ></img>
                       </div>
                       <h3 className="MobileStudentList_slider_name">{student.name}</h3>
                       <h3 className="MobileStudentList_slider_title">{student.title}</h3>
@@ -101,10 +159,26 @@ class MobileStudentList extends Component {
                 return (
                   <div key={student.url} className="MobileStudentList_slider_wrapper">
                     <div className="MobileStudentList_slider_fourth_shapes">
-                      <img className="MobileStudentList_slider_fourth_circle1" src="Assets/circle2.svg" alt=""></img>
-                      <img className="MobileStudentList_slider_fourth_circle2" src="Assets/circle.svg" alt=""></img>
-                      <img className="MobileStudentList_slider_fourth_triangle1" src="Assets/triangle7.svg" alt=""></img>
-                      <img className="MobileStudentList_slider_fourth_triangle2" src="Assets/triangle1.svg" alt=""></img>
+                      <img
+                        className="MobileStudentList_slider_fourth_circle1"
+                        src="Assets/circle2.svg"
+                        alt=""
+                      ></img>
+                      <img
+                        className="MobileStudentList_slider_fourth_circle2"
+                        src="Assets/circle.svg"
+                        alt=""
+                      ></img>
+                      <img
+                        className="MobileStudentList_slider_fourth_triangle1"
+                        src="Assets/triangle7.svg"
+                        alt=""
+                      ></img>
+                      <img
+                        className="MobileStudentList_slider_fourth_triangle2"
+                        src="Assets/triangle1.svg"
+                        alt=""
+                      ></img>
                     </div>
                     <div
                       className="MobileStudentList_slider_fourth_content"
@@ -112,10 +186,12 @@ class MobileStudentList extends Component {
                         this.props.setSelectedStudent(student);
                       }}
                     >
-                      <div
-                        className="MobileStudentList_slider_mugshot_cropper"
-                      >
-                        <img alt={student.name} src="Assets/monika.png" className="MobileStudentList_slider_mugshot"></img>
+                      <div className="MobileStudentList_slider_mugshot_cropper">
+                        <img
+                          alt={student.name}
+                          src="Assets/monika.png"
+                          className="MobileStudentList_slider_mugshot"
+                        ></img>
                       </div>
                       <h3 className="MobileStudentList_slider_name">{student.name}</h3>
                       <h3 className="MobileStudentList_slider_title">{student.title}</h3>

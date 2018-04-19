@@ -1,43 +1,57 @@
 import React, { Component } from 'react';
-import './Intro.css';
-import Graphic from '../Graphic/Graphic';
+
 import { Element } from 'react-scroll';
 import classNames from 'classnames';
+
+import Graphic from '../Graphic/Graphic';
+
+import './Intro.css';
 
 class Intro extends Component {
   constructor(props) {
     super(props);
     this.wheelTimeout = undefined;
     this.state = {
-      mousePercent: { x: 0.5, y: 0.5 },
-      isMouseInApp: false
+      isMouseInApp: false,
+      mousePercent: {x: 0.5, y: 0.5},
+      viewHeight: 0,
     };
   }
 
-  onMouseMove = (e) => {
-    var percentY = e.clientY / window.innerHeight;
-    var percentX = e.clientX / window.innerWidth;
-    this.setState({ mousePercent: { x: percentX, y: percentY } });
+  componentDidMount() {
+    this.setState({viewHeight: window.innerHeight});
   }
 
   onMouseEnter = () => {
-    this.setState({ isMouseInApp: true });
+    this.setState({isMouseInApp: true});
   }
 
   onMouseLeave = () => {
-    this.setState({ isMouseInApp: false });
+    this.setState({isMouseInApp: false});
+  }
+
+  onVisibilityChange = (isVisible) => {
+    this.props.onIntroVisibilityChange(isVisible);
   }
 
   render() {
     return (
       <Element name="Intro">
-        <div className={classNames(
-          "Intro",
-          {"Intro--stage2": this.props.introStage === 1 },
-          {"Intro--stage3": this.props.introStage === 2 },
-          {"Intro--stage4": this.props.introStage >= 3 }
-        )}>
+        <div
+          style={{
+            height: this.state.viewHeight
+          }}
+          className={classNames(
+            'Intro',
+            {'Intro--stage2': this.props.introStage === 1},
+            {'Intro--stage3': this.props.introStage === 2},
+            {'Intro--stage4': this.props.introStage === 3},
+            {'Intro--isGraphicOutOfView': this.props.isGraphicOutOfView}
+          )}
+        >
           <Graphic
+            isGraphicOutOfView={this.props.isGraphicOutOfView}
+            onGraphicImagesLoaded={this.props.onGraphicImagesLoaded}
             mousePercent={this.props.mousePercent}
             isMouseInApp={this.state.isMouseInApp}
           />

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+
 import firebase from 'firebase';
 import classNames from 'classnames';
+import { scroller, animateScroll as scroll } from 'react-scroll';
 
 import Nav from '../Nav/Nav';
 import Intro from '../Intro/Intro';
@@ -17,78 +19,136 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataRetrieved: false,
-      studentData: [],
-      randomizedStudentData: [],
       isMobile: false,
       isLoading: true,
+      isGraphicOutOfView: true,
+      isStudentDetailCircleTransitioned: false,
+      isWheeling: false,
+      isIntroLocked: true,
+      isTransitioningFromDetail: false,
+      isDataRetrieved: false,
+      studentData: [],
+      randomizedStudentData: [],
       selectedStudent: null,
       mousePos: {x: 0, y: 0},
-      mousePercent: { x: 0.5, y: 0.5 },
-      isIntroLocked: true,
+      mousePercent: {x: 0.5, y: 0.5},
+      touchStartPos: {x: 0, y: 0},
+      touchEndPos: {x: 0, y: 0},
       introStage: 0,
-      isWheeling: false
+      scrollTopBeforeDetailOpen: 0,
     };
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      window.addEventListener("wheel", this.onWheel);
-    }, 3600);
-
+    window.addEventListener('wheel', this.onWheel);
+    window.addEventListener('resize', this.onResize);
     this.onResize();
-    window.addEventListener("resize", this.onResize);
 
-    // initialize firebase for student profile data
     firebase.initializeApp({
-      apiKey: "AIzaSyByMtWsHIpivSm9z3OSk4Qst40gDxmfzWU",
-      authDomain: "webd-bios.firebaseapp.com",
-      databaseURL: "https://webd-bios.firebaseio.com",
-      projectId: "webd-bios",
-      storageBucket: "webd-bios.appspot.com",
-      messagingSenderId: "1017191453567"
+      apiKey: 'AIzaSyByMtWsHIpivSm9z3OSk4Qst40gDxmfzWU',
+      authDomain: 'webd-bios.firebaseapp.com',
+      databaseURL: 'https://webd-bios.firebaseio.com',
+      projectId: 'webd-bios',
+      storageBucket: 'webd-bios.appspot.com',
+      messagingSenderId: '1017191453567'
     });
-    // get data from database and load into app state
+
     firebase.database().ref().once('value').then((data) => {
-      // convert the object returned into an array
       var dataArray = Object.values(data.val());
-      // create new randomized array
       var randomizedStudentData = dataArray.concat().sort(function() {
         return Math.random() - 0.5;
       });
-      // load arrays into app state
-      this.setState({ dataRetrieved: true, studentData: dataArray, randomizedStudentData: randomizedStudentData });
+      this.setState({ isDataRetrieved: true, studentData: dataArray, randomizedStudentData: randomizedStudentData });
     });
+  }
 
-    // set isLoading bool to trigger App--isLoading class for animations
+  onStudentDetailCircleTransitioned = () => {
+    this.setState({
+      isStudentDetailCircleTransitioned: true,
+      scrollTopBeforeDetailOpen: window.scrollY
+    });
+  }
+
+  closeStudentDetail = (student) => {
+    this.setState({
+      isStudentDetailCircleTransitioned: false,
+      isTransitioningFromDetail: true
+    });
+    scroll.scrollTo(this.state.scrollTopBeforeDetailOpen, {
+      duration: 0,
+      smooth: false
+    });
     setTimeout(() => {
-      this.setState({ isLoading: false });
-    }, 3600);
+      this.setState({
+        selectedStudent: null,
+        scrollTopBeforeDetailOpen: 0
+      });
+    }, 50);
+    setTimeout(() => {
+      this.setState({isTransitioningFromDetail: false});
+    }, 500);
   }
 
   onWheel = (e) => {
-    if (e.deltaY > 0) {
-      if (!this.state.isWheeling) {
-        this.setState({introStage: this.state.introStage + 1});
+    if (!this.state.isLoading) {
+      if (e.deltaY > 0) {
+        if (!this.state.isWheeling) {
+          this.setState({introStage: this.state.introStage + 1});
+        }
+        this.setState({isWheeling: true});
+        clearTimeout(this.wheelTimeout);
+        this.wheelTimeout = setTimeout(() => {
+          this.wheelTimeout = undefined;
+          this.setState({isWheeling: false});
+        }, 250);
       }
-      this.setState({isWheeling: true});
-      clearTimeout(this.wheelTimeout);
-      this.wheelTimeout = setTimeout(() => {
-        this.wheelTimeout = undefined;
-        this.setState({isWheeling: false});
-      }, 250);
-    }
-    if (this.state.introStage === 3 
-        && this.state.isIntroLocked) {
-      this.setState({isIntroLocked: false});
+      if (this.state.introStage === 3 && this.state.isIntroLocked) {
+        this.setState({isIntroLocked: false});
+      }
     }
   }
 
-  onNavItemClick = () => {
+  onTouchStart = (e) => {
+    if (!this.state.isLoading) {
+      this.setState({
+        touchStartPos: {x: e.touches[0].clientX, y: e.touches[0].clientY},
+        touchEndPos: {x: e.touches[0].clientX, y: e.touches[0].clientY}
+      });
+    }
+  }
+
+  onTouchMove = (e) => {
+    if (!this.state.isLoading) {
+      this.setState({
+        touchEndPos: {x: e.touches[0].clientX, y: e.touches[0].clientY}
+      });
+    }
+  }
+
+  onTouchEnd = (e) => {
+    if (!this.state.isLoading) {
+      console.log(this.state.touchEndPos.y, this.state.touchStartPos.y);
+      if (this.state.touchEndPos.y < this.state.touchStartPos.y) {
+        this.setState({introStage: this.state.introStage + 1});
+      }
+      if (this.state.introStage === 1 && this.state.isIntroLocked) {
+        this.setState({isIntroLocked: false});
+      }
+    }
+  }
+
+  onNavItemClick = (location, offset) => {
     this.setState({
       isIntroLocked: false,
       introStage: this.state.introStage + 10
     });
+    setTimeout(() => {
+      scroller.scrollTo(location, {
+        duration: 500,
+        smooth: true,
+        offset: offset
+      });
+    }, 0);
   }
 
   onMouseMove = (e) => {
@@ -100,14 +160,6 @@ class App extends Component {
     });
   }
 
-  setSelectedStudent = (student) => {
-    this.setState({ selectedStudent: student });
-  }
-
-  closeStudentDetail = (student) => {
-    this.setState({ selectedStudent: null });
-  }
-
   onResize = () => {
     if (window.innerWidth < 600) {
       this.setState({ isMobile: true });
@@ -116,29 +168,52 @@ class App extends Component {
     }
   }
 
+  onGraphicImagesLoaded = () => {
+    this.setState({ isGraphicOutOfView: false });
+    setTimeout(() => {
+      this.setState({ isLoading: false });
+    }, 3600);
+  }
+
+  setSelectedStudent = (student) => {
+    this.setState({ selectedStudent: student });
+  }
+
   render() {
     var appClasses = classNames(
       'App',
       {'App--isLoading': this.state.isLoading},
-      {'App--isIntroLocked': this.state.isIntroLocked}
+      {'App--isIntroLocked': this.state.isIntroLocked},
+      {'App--isStudentDetailCircleTransitioned': this.state.isStudentDetailCircleTransitioned},
+      {'App--isTransitioningFromDetail': this.state.isTransitioningFromDetail}
     );
     return (
-      <div className={appClasses} onMouseMove={this.onMouseMove}>
-        <Route path='/' render={() => (
+      <div
+        className={appClasses}
+        onMouseMove={this.onMouseMove}
+        onTouchStart={this.onTouchStart}
+        onTouchMove={this.onTouchMove}
+        onTouchEnd={this.onTouchEnd}
+      >
+        <Route path="/" render={() => (
           <Nav
             isMobile={this.state.isMobile}
             onNavItemClick={this.onNavItemClick}
           />
         )} />
-        <Route path='/' render={() => (
+        <Route path="/" render={() => (
           <Intro
+            isGraphicOutOfView={this.state.isGraphicOutOfView}
+            onGraphicLoaded={this.onGraphicLoaded}
+            onGraphicImagesLoaded={this.onGraphicImagesLoaded}
             mousePercent={this.state.mousePercent}
             introStage={this.state.introStage}
           />
         )} />
         {this.state.selectedStudent !== null &&
-          <Route path='/' render={() => (
+          <Route path="/" render={() => (
             <StudentDetail
+              onStudentDetailCircleTransitioned={this.onStudentDetailCircleTransitioned}
               mousePos={this.state.mousePos}
               isMobile={this.state.isMobile}
               selectedStudent={this.state.selectedStudent}
@@ -148,7 +223,7 @@ class App extends Component {
         }
 
         {this.state.isMobile &&
-          <Route path='/' render={() => (
+          <Route path="/" render={() => (
             <MobileStudentList
               randomizedStudentData={this.state.randomizedStudentData}
               setSelectedStudent={this.setSelectedStudent}
@@ -156,15 +231,15 @@ class App extends Component {
           )} />
         }
         {!this.state.isMobile &&
-          <Route path='/' render={() => (
+          <Route path="/" render={() => (
             <StudentList
               randomizedStudentData={this.state.randomizedStudentData}
               setSelectedStudent={this.setSelectedStudent}
             />
           )} />
         }
-        <Route path='/' component={Event} />
-        <Route path='/' component={Footer} />
+        <Route path="/" component={Event} />
+        <Route path="/" component={Footer} />
       </div>
     );
   }

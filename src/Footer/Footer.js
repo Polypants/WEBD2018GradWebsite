@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+
 import './Footer.css';
 
-class Graphic extends Component {
+class Footer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,4 +25,4 @@ class Graphic extends Component {
   }
 }
 
-export default Graphic;
+export default Footer;

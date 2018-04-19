@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './Event.css';
 import { Element } from 'react-scroll';
 
 import { compose, withProps } from "recompose";
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
+import greyStyleMap from './GreyStyleMap.json';
 
-const greyStyleMap = require("./GreyStyleMap.json");
+import './Event.css';
 
 const MyMapComponent = compose(
   withProps({
@@ -27,12 +27,11 @@ const MyMapComponent = compose(
   </GoogleMap>
 );
 
-
 class Event extends Component {
   render() {
     return (
-      <div className="Event">
-        <Element name="Event">
+      <Element name="Event">
+        <div className="Event">
           <div className="Event_wrapper">
             <div className="Event_item Event_item_1">
               <div className="text_container_1">
@@ -52,8 +51,6 @@ class Event extends Component {
               </div>
             </div>
           </div>
-        </Element>
-        <Element name="Rsvp">
           <div className="Event_reservation" id="GoogleMap">
             <MyMapComponent
               isMarkerShown
@@ -65,11 +62,17 @@ class Event extends Component {
             />
             <div className="text_container_4">
               <h2 className="Event_mapTitle">WE CAN'T WAIT TO MEET YOU!</h2>
-              <div className="Event_rsvpButton">RSVP Now</div>
+              <a
+                href="https://www.eventbrite.ca/e/elevate-portfolio-show-and-networking-event-tickets-44610745942"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="Event_rsvpButton">RSVP Now</div>
+              </a>
             </div>
           </div>
-        </Element>
-      </div>
+        </div>
+      </Element>
     );
   }
 }

@@ -16,11 +16,13 @@
     transform: translate( -40%, -65% );
   }
 }
+
 .Graphic_container {
   position: absolute;
   height: 100%;
   width: 100%;
 }
+
 .Graphic_shape {
   opacity: 1;
   position: absolute;
@@ -35,59 +37,69 @@
     opacity: 1;
   }
 }
+
 .Graphic_shapeContainer {
   position: absolute;
   height: 100%;
   width: 100%;
   mix-blend-mode: screen;
 }
+
 .Graphic_circle4,
 .Graphic_triangle2,
 .Graphic_triangle6 {
   mix-blend-mode: overlay;
 }
+
 .Graphic_triangle1 {
   width: 50%;
   bottom: -30%;
   left: -10%;
   transition-delay: 0.2s;
 }
+
 .Graphic_triangle2 {
   width: 55%;
   left: -20%;
   bottom: -10%;
   transition-delay: 0.4s;
 }
+
 .Graphic_circle1 {
   width: 43%;
   left: 15%;
   top: 63%;
   transition-delay: 0.6s;
 }
+
 .Graphic_triangle3 {
   width: 38%;
   top: 50%;
   left: 50%;
   transition-delay: 0.8s;
 }
+
 .Graphic_triangle4 {
   width: 70%;
   top: 40%;
   left: 35.5%;
   transition-delay: 1s;
 }
+
 .Graphic_triangle5 {
   width: 25%;
   top: 38%;
   left: 25.1%;
   transition-delay: 1.2s;
 }
+
 .Graphic_circle2 {
   width: 43%;
   left: 42%;
   top: 26%;
   transition-delay: 1.4s;
 }
+
 .Graphic_triangle6 {
   width: 25%;
   top: 10%;
@@ -95,57 +107,72 @@
   mix-blend-mode: overlay;
   transition-delay: 1.6s;
 }
+
 .Graphic_triangle7 {
   width: 20%;
   left: 62%;
   top: 10%;
   transition-delay: 1.8s;
 }
+
 .Graphic_circle3 {
   width: 28%;
   top: 12%;
   right: 5%;
   transition-delay: 2s;
 }
+
 .Graphic_circle4 {
   width: 30%;
   right: 0;
   top: 10%;
   transition-delay: 2.2s;
 }
+
 .Graphic--isOutOfView .Graphic_shape {
   opacity: 0;
 }
+
 .Graphic--isOutOfView .Graphic_triangle1 {
   transform: translate( -50vw, 50vh );
 }
+
 .Graphic--isOutOfView .Graphic_triangle2 {
   transform: translate( 50vw, 50vh );
 }
+
 .Graphic--isOutOfView .Graphic_circle1 {
   transform: translate( 25vw, 75vh );
 }
+
 .Graphic--isOutOfView .Graphic_triangle3 {
   transform: translate( 60vw, 40vh );
 }
+
 .Graphic--isOutOfView .Graphic_triangle4 {
   transform: translate( 50vw, 50vh );
 }
+
 .Graphic--isOutOfView .Graphic_triangle5 {
   transform: translate( -20vw, 80vh );
 }
+
 .Graphic--isOutOfView .Graphic_circle2 {
   transform: translate( -25vw, 75vh );
 }
+
 .Graphic--isOutOfView .Graphic_triangle6 {
   transform: translate( -40vw, -60vh );
 }
+
 .Graphic--isOutOfView .Graphic_triangle7 {
   transform: translate( 50vw, -50vh );
 }
+
 .Graphic--isOutOfView .Graphic_circle3 {
   transform: translate( 50vw, 50vh );
 }
+
 .Graphic--isOutOfView .Graphic_circle4 {
   transform: translate( 25vw, -75vh );
 }

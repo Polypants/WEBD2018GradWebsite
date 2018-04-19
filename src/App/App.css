@@ -21,8 +21,3 @@
   font-family: 'Roboto-Italic';
   src: url('../Fonts/Roboto-Italic.ttf');
 }
-
-.App--isIntroLocked {
-  overflow-y: hidden;
-  height: 100vh;
-}

@@ -1,56 +1,61 @@
 import React, { Component } from 'react';
-import './Nav.css';
+
 import classNames from 'classnames';
-import { Link } from 'react-scroll';
+
+import './Nav.css';
 
 class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isHidden: false,
-      previousScrollY: 0,
       isNotAtTop: false,
-      isMobileMenuOpen: false
+      isMobileMenuOpen: false,
+      previousScrollY: 0,
     };
   }
 
   componentDidMount() {
-    window.addEventListener("scroll", this.onScroll);
+    window.addEventListener('scroll', this.onScroll);
   }
 
   onMobileButtonClick = () => {
-    this.setState({ isMobileMenuOpen: !this.state.isMobileMenuOpen });
+    this.setState({isMobileMenuOpen: !this.state.isMobileMenuOpen});
   }
 
   onScroll = () => {
     if (window.scrollY > 0) {
-      this.setState({ isNotAtTop: true });
+      this.setState({isNotAtTop: true});
     } else {
-      this.setState({ isNotAtTop: false });
+      this.setState({isNotAtTop: false});
+    }
+
+    if (window.scrollY < window.innerHeight) {
+      this.setState({isAt100FromTop: true});
+    } else {
+      this.setState({isAt100FromTop: false});
     }
 
     if (window.scrollY > this.state.previousScrollY) {
-      this.setState({ isHidden: true });
+      this.setState({isHidden: true});
     }
     if (window.scrollY < this.state.previousScrollY) {
-      this.setState({ isHidden: false });
+      this.setState({isHidden: false});
     }
 
-    this.setState({ previousScrollY: window.scrollY });
+    this.setState({previousScrollY: window.scrollY});
   }
 
-  onLinkClick = () => {
-    this.setState({ isMobileMenuOpen: false });
-    this.props.onNavItemClick();
+  onLinkClick = (location, offset) => {
+    this.props.onNavItemClick(location, offset);
+    this.setState({isMobileMenuOpen: false});
   }
-
 
   render() {
     var navClassNames = classNames(
-      "Nav",
-      {"Nav--isHidden": this.state.isHidden},
-      {"Nav--isNotAtTop": this.state.isNotAtTop},
-      {"Nav--isMobileMenuOpen": this.state.isMobileMenuOpen}
+      'Nav',
+      {'Nav--isNotAtTop': this.state.isNotAtTop},
+      {'Nav--isMobileMenuOpen': this.state.isMobileMenuOpen}
     );
     return (
       <div className={navClassNames}>
@@ -58,18 +63,9 @@ class Nav extends Component {
         <div className="Nav_mobileMenu">
           <nav>
             <ul>
-              <li>
-                <Link onClick={this.onLinkClick} to="Intro" smooth={true} duration={500}>HOME</Link>
-              </li>
-              <li>
-                <Link onClick={this.onLinkClick} to="Team" offset={-100} smooth={true} duration={500}>TEAM</Link>
-              </li>
-              <li>
-                <Link onClick={this.onLinkClick} to="Event"offset={-65} smooth={true} duration={500}>EVENT</Link>
-              </li>
-              <li>
-                <Link onClick={this.onLinkClick} to="Rsvp" smooth={true} duration={500}>RSVP</Link>
-              </li>
+              <li onClick={() => {this.onLinkClick('Intro', 0)}}>HOME</li>
+              <li onClick={() => {this.onLinkClick('Team', -150)}}>TEAM</li>
+              <li onClick={() => {this.onLinkClick('Event', -100)}}>EVENT</li>
             </ul>
           </nav>
         </div>
@@ -78,18 +74,9 @@ class Nav extends Component {
           <div className="Nav_desktop">
             <nav>
               <ul>
-                <li>
-                  <Link onClick={this.onLinkClick} to="Intro" smooth={true} duration={500}>HOME</Link>
-                </li>
-                <li>
-                  <Link onClick={this.onLinkClick} to="Team" offset={-100} smooth={true} duration={500}>TEAM</Link>
-                </li>
-                <li>
-                  <Link onClick={this.onLinkClick} to="Event" offset={-65} smooth={true} duration={500}>EVENT</Link>
-                </li>
-                <li>
-                  <Link onClick={this.onLinkClick} to="Rsvp" smooth={true} duration={500}>RSVP</Link>
-                </li>
+                <li onClick={() => {this.onLinkClick('Intro', 0)}}>HOME</li>
+                <li onClick={() => {this.onLinkClick('Team', -150)}}>TEAM</li>
+                <li onClick={() => {this.onLinkClick('Event', -100)}}>EVENT</li>
               </ul>
             </nav>
           </div>
