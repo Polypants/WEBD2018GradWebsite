@@ -4,13 +4,13 @@ import { Element } from 'react-scroll';
 
 class StudentList extends Component {
   onMouseEnterItem = (e) => {
-    var container = e.target.parentNode.parentNode.parentNode;
+    var container = e.currentTarget.parentNode.parentNode;
     var shapes = container.getElementsByClassName("StudentList_content_wrapper_shapes")[0];
     shapes.classList.add("StudentList_content_wrapper_shapes--hover");
   }
 
   onMouseLeaveItem = (e) => {
-    var container = e.target.parentNode.parentNode.parentNode;
+    var container = e.currentTarget.parentNode.parentNode;
     var shapes = container.getElementsByClassName(" StudentList_content_wrapper_shapes")[0];
     shapes.classList.remove("StudentList_content_wrapper_shapes--hover");
   }
@@ -59,7 +59,7 @@ class StudentList extends Component {
                       >
                         <img
                           alt={student.name}
-                          src="Assets/monika.png"
+                          src={`Assets/mugshots/${student.url}.png`}
                           className="StudentList_content_mugshot"
                         ></img>
                       </div>
@@ -104,7 +104,7 @@ class StudentList extends Component {
                       >
                         <img
                           alt={student.name}
-                          src="Assets/monika.png"
+                          src={`Assets/mugshots/${student.url}.png`}
                           className="StudentList_content_mugshot"
                         ></img>
                       </div>
@@ -150,7 +150,11 @@ class StudentList extends Component {
                         onMouseEnter={this.onMouseEnterItem}
                         onMouseLeave={this.onMouseLeaveItem}
                       >
-                        <img alt={student.name} src="Assets/monika.png" className="StudentList_content_mugshot"></img>
+                        <img
+                          alt={student.name}
+                          src={`Assets/mugshots/${student.url}.png`}
+                          className="StudentList_content_mugshot"
+                        ></img>
                       </div>
                       <h3 className="StudentList_content_name">{student.name}</h3>
                       <h3 className="StudentList_content_title">{student.title}</h3>
@@ -193,7 +197,7 @@ class StudentList extends Component {
                       >
                         <img
                           alt={student.name}
-                          src="Assets/monika.png"
+                          src={`Assets/mugshots/${student.url}.png`}
                           className="StudentList_content_mugshot"
                         ></img>
                       </div>
@@ -238,7 +242,7 @@ class StudentList extends Component {
                       >
                         <img
                           alt={student.name}
-                          src="Assets/monika.png"
+                          src={`Assets/mugshots/${student.url}.png`}
                           className="StudentList_content_mugshot"
                         ></img>
                       </div>
@@ -283,7 +287,7 @@ class StudentList extends Component {
                       >
                         <img
                           alt={student.name}
-                          src="Assets/monika.png"
+                          src={`Assets/mugshots/${student.url}.png`}
                           className="StudentList_content_mugshot"
                         ></img>
                       </div>

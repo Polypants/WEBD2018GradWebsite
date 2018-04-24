@@ -287,7 +287,7 @@ class StudentDetail extends Component {
                 transform: 'translateX(-25%)'
               }}
               className="StudentDetail_profile_mugshot_student"
-              src="Assets/yuri.png"
+              src={`Assets/mugshots/${this.props.selectedStudent.url}-2.png`}
               alt=""
             ></img>
             <img

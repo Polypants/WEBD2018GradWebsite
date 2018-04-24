@@ -55,7 +55,7 @@ class MobileStudentList extends Component {
                       <div className="MobileStudentList_slider_mugshot_cropper">
                         <img
                           alt={student.name}
-                          src="Assets/monika.png"
+                          src={`Assets/mugshots/${student.url}.png`}
                           className="MobileStudentList_slider_mugshot"
                         ></img>
                       </div>
@@ -98,7 +98,7 @@ class MobileStudentList extends Component {
                       <div className="MobileStudentList_slider_mugshot_cropper">
                         <img
                           alt={student.name}
-                          src="Assets/monika.png"
+                          src={`Assets/mugshots/${student.url}.png`}
                           className="MobileStudentList_slider_mugshot"
                         ></img>
                       </div>
@@ -146,7 +146,7 @@ class MobileStudentList extends Component {
                       >
                         <img
                           alt={student.name}
-                          src="Assets/monika.png"
+                          src={`Assets/mugshots/${student.url}.png`}
                           className="MobileStudentList_slider_mugshot"
                         ></img>
                       </div>
@@ -189,7 +189,7 @@ class MobileStudentList extends Component {
                       <div className="MobileStudentList_slider_mugshot_cropper">
                         <img
                           alt={student.name}
-                          src="Assets/monika.png"
+                          src={`Assets/mugshots/${student.url}.png`}
                           className="MobileStudentList_slider_mugshot"
                         ></img>
                       </div>
